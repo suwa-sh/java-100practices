@@ -3,3 +3,7 @@ lib/
 *.class
 *.jar
 *.war
+
+# IntelliJ IDEA
+*.iml
+.idea/
