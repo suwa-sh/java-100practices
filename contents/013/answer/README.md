@@ -1,12 +1,12 @@
-[問題](../README.md)
+## 解答
+`HOGE`に代入される値として、
+まず最初に`final`修飾子が付いた行が呼ばれる。
+ここで`n.toString()`の箇所に関して、
+`n`には何も代入されておらず`null`であるため`NullPointerException`が発生し、
+クラスを初期化することができないため`ExceptionInInitializerError`が発生する。
 
-***
-# 013：解答例
-3行目で変数の初期化エラーが発生する。
-
-```
-$ java Knock013
-Exception in thread "main" java.lang.ExceptionInInitializerError
-Caused by: java.lang.NullPointerException
-        at Knock013.<clinit>(Knock013.java:3)
+## 正しく実行させるための例
+```Java
+//private static Object n;  //修正前
+private static Object n = 100; //修正後
 ```

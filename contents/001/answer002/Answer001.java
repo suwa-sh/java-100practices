@@ -1,12 +1,12 @@
 /**
- * 001‚Ì‰ğ“š‚Å‚·B
+ * 001ã®è§£ç­”ã§ã™ã€‚
  *
  * @author jsfkdt
  */
 public class Answer001 {
     /**
-     * 001‚Ì‰ğ“š‚Å‚·B
-     * @param arguments g—p‚µ‚Ü‚¹‚ñB
+     * 001ã®è§£ç­”ã§ã™ã€‚
+     * @param arguments ä½¿ç”¨ã—ã¾ã›ã‚“ã€‚
      */
     public static void main(String[] arguments) {
         System.out.println("Hello, World!");

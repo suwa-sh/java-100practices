@@ -1,44 +1,44 @@
 import java.lang.reflect.Field;
 
 /**
- * 032‚Ì‰ğ“š‚Å‚·.
+ * 032ã®è§£ç­”ã§ã™.
  *
  * @author jsfkdt
  */
-public class AnnoationUsingSamle {
+public class AnnoationUsingSamlpe {
 
     /**
-     * 032‚Ì‰ğ“š‚Å‚·.
-     * ƒAƒmƒe[ƒVƒ‡ƒ“‚ğ—p‚¢‚ÄA
-     * ˆø”‚Éw’è‚³‚ê‚½’l‚ª3‚Ì”{”‚Å‚ ‚é‚©‚Ç‚¤‚©‚Ìƒ`ƒFƒbƒN‚ğs‚¤.
+     * 032ã®è§£ç­”ã§ã™.
+     * ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã‚’ç”¨ã„ã¦ã€
+     * å¼•æ•°ã«æŒ‡å®šã•ã‚ŒãŸå€¤ãŒ3ã®å€æ•°ã§ã‚ã‚‹ã‹ã©ã†ã‹ã®ãƒã‚§ãƒƒã‚¯ã‚’è¡Œã†.
      *
      * @param arguments
      */
     public static void main(final String[] args) throws Exception {
 
-        // ”z—ñ‚É’l‚ª“ü‚Á‚Ä‚¢‚È‚¢ê‡A‹­§I—¹
+        // é…åˆ—ã«å€¤ãŒå…¥ã£ã¦ã„ãªã„å ´åˆã€å¼·åˆ¶çµ‚äº†
         if (args.length < 1) {
-            System.err.println("ˆø”‚É”’l‚ğw’è‚µAÄÀs‚µ‚Ä‰º‚³‚¢B");
+            System.err.println("å¼•æ•°ã«æ•°å€¤ã‚’æŒ‡å®šã—ã€å†å®Ÿè¡Œã—ã¦ä¸‹ã•ã„ã€‚");
             System.exit(1);
         }
 
         try {
             User user = getUser(Integer.parseInt(args[0]));
             checkUserInfo(user);
-            System.out.println("3‚Ì”{”‚Å‚·B");
+            System.out.println("3ã®å€æ•°ã§ã™ã€‚");
         } catch (NumberFormatException e) {
-            System.err.println("ˆø”‚É”’l‚ğw’è‚µAÄÀs‚µ‚Ä‰º‚³‚¢B");
+            System.err.println("å¼•æ•°ã«æ•°å€¤ã‚’æŒ‡å®šã—ã€å†å®Ÿè¡Œã—ã¦ä¸‹ã•ã„ã€‚");
             e.printStackTrace();
         }
     }
 
     /**
-     * ˆø”‚ª3‚Ì”{”‚©‚Ç‚¤‚©‚ğ”»’è‚·‚é.
+     * å¼•æ•°ãŒ3ã®å€æ•°ã‹ã©ã†ã‹ã‚’åˆ¤å®šã™ã‚‹.
      *
-     * @param user UserŒ^ƒIƒuƒWƒFƒNƒg
+     * @param user Userå‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
      */
     private static void checkUserInfo(User user) throws Exception {
-        // ƒtƒB[ƒ‹ƒh‚Ìæ“¾
+        // ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®å–å¾—
         Field[] fields = user.getClass().getDeclaredFields();
 
         for (Field field : fields) {
@@ -46,12 +46,12 @@ public class AnnoationUsingSamle {
 
                 int number = (int) field.get(user);
 
-                // 3‚Ì”{”ƒ`ƒFƒbƒNƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ğ¶¬.
+                // 3ã®å€æ•°ãƒã‚§ãƒƒã‚¯ã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ç”Ÿæˆ.
                 MultipleThreeValidator checkMultipleThree = new MultipleThreeValidator();
 
-                // 3‚Ì”{”‚©‚Ç‚¤‚©‚ğ”»’è.
+                // 3ã®å€æ•°ã‹ã©ã†ã‹ã‚’åˆ¤å®š.
                 if(!checkMultipleThree.isValid(number)) {
-                    System.err.println("3‚Ì”{”‚Å‚Í‚ ‚è‚Ü‚¹‚ñB");
+                    System.err.println("3ã®å€æ•°ã§ã¯ã‚ã‚Šã¾ã›ã‚“ã€‚");
                     throw new IllegalStateException();
                 }
             }
@@ -59,10 +59,10 @@ public class AnnoationUsingSamle {
     }
 
     /**
-     * UserŒ^‚ÌƒIƒuƒWƒFƒNƒg‚ğ•Ô‹p‚·‚é.
+     * Userå‹ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’è¿”å´ã™ã‚‹.
      *
-     * @param number w’è‚Ìˆø”
-     * @return UserŒ^‚ÌƒIƒuƒWƒFƒNƒg
+     * @param number æŒ‡å®šã®å¼•æ•°
+     * @return Userå‹ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
      */
     private static User getUser(int number) {
         User user = new User();

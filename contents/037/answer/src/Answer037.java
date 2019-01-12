@@ -1,3 +1,4 @@
+import java.util.Calendar;
 import java.util.Date;
 import java.text.SimpleDateFormat;
 import java.text.ParseException;
@@ -6,58 +7,58 @@ import java.util.List;
 import java.lang.Cloneable;
 import java.lang.InternalError;
 /**
- * 037‚Ì‰ğ“š‚Å‚·B
+ * 037ã®è§£ç­”ã§ã™ã€‚
  *
  * @author jsfkdt
  */
 public class Answer037 implements Cloneable {
-    /* DateŒ^ƒŠƒXƒg */
+    /* Dateå‹ãƒªã‚¹ãƒˆ */
     private List<Date> dateList = new ArrayList<Date>();
     
     /**
-     * 037‚Ì‰ğ“š‚Å‚·.
-     * @param arguments g—p‚µ‚Ü‚¹‚ñ.
+     * 037ã®è§£ç­”ã§ã™.
+     * @param args ä½¿ç”¨ã—ã¾ã›ã‚“.
      */
     @Deprecated
-    public static void main(final String[] args) throws ParseException {
-        SimpleDateFormat yearMonthDay = new SimpleDateFormat("yyyy/mm/dd");
-        
-        /* DateŒ^ ‰ß‹“ú•t */
-        String pastDay = "2015/01/17";
-        Date pastDate = yearMonthDay.parse(pastDay);
-        
-        /* DateŒ^ –¢—ˆ“ú•t */
-        String furtureDay = "2017/06/06";
-        Date futureDate = yearMonthDay.parse(furtureDay);
-        
-        /* DateŒ^ ¡“ú“ú•t */
+    public static void main(final String[] args) {
+        /* Dateå‹ å½“æ—¥æ—¥ä»˜ */
         Date today = new Date();
-        
-        // ƒCƒ“ƒXƒ^ƒ“ƒX‚ğ¶¬iƒRƒs[Œ³j.
+
+        /* Dateå‹ éå»æ—¥ä»˜ */
+        Calendar pastCalendar = Calendar.getInstance();
+        pastCalendar.add(Calendar.MONTH, -1);
+        Date pastDate = pastCalendar.getTime();
+
+        /* Dateå‹ æœªæ¥æ—¥ä»˜ */
+        Calendar futureCalendar = Calendar.getInstance();
+        futureCalendar.add(Calendar.MONTH, 1);
+        Date futureDate = futureCalendar.getTime();
+
+        // ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ç”Ÿæˆï¼ˆã‚³ãƒ”ãƒ¼å…ƒï¼‰.
         Answer037 dateInstance = new Answer037();
         
-        // ƒŠƒXƒg‚ÖDATEŒ^ƒIƒuƒWƒFƒNƒg‚ğŠi”[.
+        // ãƒªã‚¹ãƒˆã¸DATEå‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’æ ¼ç´.
         dateInstance.dateList.add(pastDate);
         dateInstance.dateList.add(today);
         dateInstance.dateList.add(futureDate);
         
-        // ƒfƒB[ƒvƒRƒs[‚ğs‚¤.
+        // ãƒ‡ã‚£ãƒ¼ãƒ—ã‚³ãƒ”ãƒ¼ã‚’è¡Œã†.
         Answer037 deepCopyDateInstance = dateInstance.clone();
         
-        // ƒVƒƒƒ[ƒRƒs[‚ğs‚¤.
+        // ã‚·ãƒ£ãƒ­ãƒ¼ã‚³ãƒ”ãƒ¼ã‚’è¡Œã†.
         List<Date> shallowDateList = shallowCopy(dateInstance.dateList);
         
-        // Œ³ƒf[ƒ^‚Ì‘‚«Š·‚¦
+        // å…ƒãƒ‡ãƒ¼ã‚¿ã®æ›¸ãæ›ãˆ
         dateInstance.dateList.get(0).setDate(1);
         
-        // ƒfƒB[ƒvƒRƒs[ƒf[ƒ^‚Ì•W€o—Í.
+        // ãƒ‡ã‚£ãƒ¼ãƒ—ã‚³ãƒ”ãƒ¼ãƒ‡ãƒ¼ã‚¿ã®æ¨™æº–å‡ºåŠ›.
         if (deepCopyDateInstance == null) {
             System.out.println(deepCopyDateInstance);
         } else {
             System.out.println(deepCopyDateInstance.dateList.get(0).getDate());
         }
         
-        // ƒVƒƒƒ[ƒRƒs[ƒf[ƒ^‚Ì•W€o—Í.
+        // ã‚·ãƒ£ãƒ­ãƒ¼ã‚³ãƒ”ãƒ¼ãƒ‡ãƒ¼ã‚¿ã®æ¨™æº–å‡ºåŠ›.
         if (shallowDateList == null) {
             System.out.println(shallowDateList);
         } else {
@@ -67,26 +68,25 @@ public class Answer037 implements Cloneable {
     }
     
     /**
-     * ƒIƒuƒWƒFƒNƒg‚ÌƒfƒB[ƒvƒRƒs[‚ğs‚¢AƒRƒs[ŒãƒIƒuƒWƒFƒNƒg‚ğ•Ô‹p‚·‚é.
+     * ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ãƒ‡ã‚£ãƒ¼ãƒ—ã‚³ãƒ”ãƒ¼ã‚’è¡Œã„ã€ã‚³ãƒ”ãƒ¼å¾Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’è¿”å´ã™ã‚‹.
      *
-     * @return Answer037ƒIƒuƒWƒFƒNƒg.ƒIƒuƒWƒFƒNƒg‚ÌdateList‚ªnull‚Ìê‡‚ÍƒIƒuƒWƒFƒNƒg‚ğ•Ô‹p.
+     * @return Answer037ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ.ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®dateListãŒnullã®å ´åˆã¯ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’è¿”å´.
      */ 
     @Override
     public Answer037 clone() {
         try {
-            // ƒX[ƒp[ƒNƒ‰ƒX‚Ìcloneƒƒ\ƒbƒh‚ğŒÄ‚Ô.
+            // ã‚¹ãƒ¼ãƒ‘ãƒ¼ã‚¯ãƒ©ã‚¹ã®cloneãƒ¡ã‚½ãƒƒãƒ‰ã‚’å‘¼ã¶.
             Answer037 result = (Answer037)super.clone();
             
-            // V‹KƒŠƒXƒg‚Ìì¬.
+            // æ–°è¦ãƒªã‚¹ãƒˆã®ä½œæˆ.
             List<Date> copiedDateList = new ArrayList<Date>();
             
             if (result.dateList == null) {
-                // null‚Ìê‡‚ÍAƒIƒuƒWƒFƒNƒg‚ğ•Ô‹p.
+                // nullã®å ´åˆã¯ã€ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’è¿”å´.
                 return result;
-                
             }
             
-            // DateŒ^‚Ì—v‘f‚ğæ“¾‚µAƒŠƒXƒg‚Ö‘ã“ü.
+            // Dateå‹ã®è¦ç´ ã‚’å–å¾—ã—ã€ãƒªã‚¹ãƒˆã¸ä»£å…¥.
             for (Date dateInstance : result.dateList) {
                 if (dateInstance == null) {
                     copiedDateList.add(null);
@@ -95,10 +95,10 @@ public class Answer037 implements Cloneable {
                 }
             }
             
-            // ƒŠƒXƒg‚»‚Ì‚à‚Ì‚ğã‘‚«‚·‚é.
+            // ãƒªã‚¹ãƒˆãã®ã‚‚ã®ã‚’ä¸Šæ›¸ãã™ã‚‹.
             result.dateList = copiedDateList;
             
-            // Œ‹‰Ê‚ğ•Ô‚·.
+            // çµæœã‚’è¿”ã™.
             return result;
         } catch (CloneNotSupportedException e) {
             throw new InternalError(e);
@@ -106,12 +106,12 @@ public class Answer037 implements Cloneable {
     }
     
     /**
-     * ƒIƒuƒWƒFƒNƒg‚ÌƒVƒƒƒ[ƒRƒs[‚ğs‚¢AƒRƒs[ŒãƒŠƒXƒg‚ğ•Ô‹p‚·‚é.
+     * ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚·ãƒ£ãƒ­ãƒ¼ã‚³ãƒ”ãƒ¼ã‚’è¡Œã„ã€ã‚³ãƒ”ãƒ¼å¾Œãƒªã‚¹ãƒˆã‚’è¿”å´ã™ã‚‹.
      *
-     * @return DateŒ^ƒŠƒXƒg. ˆø”‚ªnull‚Ì‚ÍAnull‚ğ•Ô‹p.
+     * @return Dateå‹ãƒªã‚¹ãƒˆ. å¼•æ•°ãŒnullã®æ™‚ã¯ã€nullã‚’è¿”å´.
      */
     public static List<Date> shallowCopy(List<Date> shallowList) {
-        // null‚Ìê‡‚ÍAnull‚ğ•Ô‹p.
+        // nullã®å ´åˆã¯ã€nullã‚’è¿”å´.
         if (shallowList == null) {
             return null;
         }

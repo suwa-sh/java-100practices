@@ -1,15 +1,15 @@
 import java.rmi.Naming;
 
 /**
- * 021‚Ì‰ğ“š‚Å‚·. ƒNƒ‰ƒCƒAƒ“ƒg‘¤‚ªŒ‹‰Ê‚ğæ“¾‚·‚é.
+ * 021ã®è§£ç­”ã§ã™. ã‚¯ãƒ©ã‚¤ã‚¢ãƒ³ãƒˆå´ãŒçµæœã‚’å–å¾—ã™ã‚‹.
  *
  * @author jsfkdt
  */
 public class RandomClient {
     /**
-     * 021‚Ì‰ğ“š‚Å‚·. 
+     * 021ã®è§£ç­”ã§ã™. 
      *
-     * @param arguments g—p‚µ‚Ü‚¹‚ñ.
+     * @param arguments ä½¿ç”¨ã—ã¾ã›ã‚“.
      */
     public static void main(String[] args) {
         RandomRmi random;

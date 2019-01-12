@@ -1,25 +1,25 @@
 import java.util.Date;
 
 /**
- * 073‚Å—p‚¢‚éCommandÀ‘•ƒNƒ‰ƒX.
+ * 073ã§ç”¨ã„ã‚‹Commandå®Ÿè£…ã‚¯ãƒ©ã‚¹.
  *
  * @author jsfkdt
  */
 public abstract class AbstractCommand<T> implements Command<T> {
     
-    /* ƒtƒ‰ƒO‚Ì‰Šú‰». */
+    /* ãƒ•ãƒ©ã‚°ã®åˆæœŸåŒ–. */
     private Status flag = Status.NONE;
     
-    /* —áŠO‚Ì‰Šú‰». */
+    /* ä¾‹å¤–ã®åˆæœŸåŒ–. */
     private Throwable error = null;
     
-    /* ÀsŒ‹‰Ê‚Ì‰Šú‰»(–¢Às‚Ìó‘Ô). */
+    /* å®Ÿè¡Œçµæœã®åˆæœŸåŒ–(æœªå®Ÿè¡Œæ™‚ã®çŠ¶æ…‹). */
     private T result = null;
     
     /**
-     * ˆ—‚ğs‚¢AƒIƒuƒWƒFƒNƒg‚ğ•Ô‹p‚·‚é.
+     * å‡¦ç†ã‚’è¡Œã„ã€ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’è¿”å´ã™ã‚‹.
      *
-     * @return ˆ—Œ‹‰Ê‚ÌƒIƒuƒWƒFƒNƒg.
+     * @return å‡¦ç†çµæœã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ.
      */
     protected abstract T executeInner();
     
@@ -28,25 +28,25 @@ public abstract class AbstractCommand<T> implements Command<T> {
      */
     @Override
     public void execute() {
-        // Àsó‘Ôƒtƒ‰ƒO‚ğİ’è.
+        // å®Ÿè¡ŒçŠ¶æ…‹ãƒ•ãƒ©ã‚°ã‚’è¨­å®š.
         flag = Status.EXECUTING;
         
         try {
-            // ‹¤’Êƒƒ\ƒbƒh‚ÌÀs(–{ˆ—)
+            // å…±é€šãƒ¡ã‚½ãƒƒãƒ‰ã®å®Ÿè¡Œ(æœ¬å‡¦ç†)
             result = executeInner();
             
-            // ¬Œ÷ƒtƒ‰ƒO‚ğİ’è.
+            // æˆåŠŸãƒ•ãƒ©ã‚°ã‚’è¨­å®š.
             flag = Status.SUCCESS;
             
         } catch (Throwable error) {
-            // ƒGƒ‰[ƒtƒ‰ƒO‚ğİ’è.
+            // ã‚¨ãƒ©ãƒ¼ãƒ•ãƒ©ã‚°ã‚’è¨­å®š.
             flag = Status.ERROR;
-            // ÀsŒ‹‰Ê‚ğnull‚Éİ’è.
+            // å®Ÿè¡Œçµæœã‚’nullã«è¨­å®š.
             result = null;
-            // —áŠO‚ğİ’è.
+            // ä¾‹å¤–ã‚’è¨­å®š.
             this.error = error;
             
-            // ErrorƒNƒ‰ƒX‚Ì—áŠO‚Å‚ ‚ê‚ÎƒXƒ[‚·‚é.
+            // Errorã‚¯ãƒ©ã‚¹ã®ä¾‹å¤–ã§ã‚ã‚Œã°ã‚¹ãƒ­ãƒ¼ã™ã‚‹.
             if (error instanceof Error) {
                 throw error;
             }

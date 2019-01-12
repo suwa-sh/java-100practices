@@ -2,6 +2,17 @@
 
 ***
 # 039：解答例
-finally 節の処理が try の例外処理より優先されるため、finally 節の throw が catch され、 2nd が出力されて終了する。
-
-[ソースコード(Knock039.java)](src/Knock039.java)
+まず最初に以下の文が呼ばれます。
+```java
+try {
+    throw new Exception("1st");
+}
+```
+その次に、以下の文が呼ばれます。
+```java
+finally {
+    throw new Exception("2nd");
+}
+```
+そこで上位`try-catch`文では`2nd`をキャッチするので、
+`2nd`がメッセージとして出力されます。

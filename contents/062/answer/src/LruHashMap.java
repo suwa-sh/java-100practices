@@ -2,21 +2,21 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
- * 062‚ÌLinkedHashMap—pƒNƒ‰ƒX‚Å‚·.
+ * 062ã®LinkedHashMapç”¨ã‚¯ãƒ©ã‚¹ã§ã™.
  *
  * @author jsfkdt
  */
 public class LruHashMap<K, V> extends LinkedHashMap<K, V> {
-    /* Å‘å—e—Ê. */
+    /* æœ€å¤§å®¹é‡. */
     private final int maxSize;
     
     /**
-     * LRU•û®—p‚Éİ’è‚·‚é.
-     * MaxSize‚ğİ’è‚·‚é.
+     * LRUæ–¹å¼ç”¨ã«è¨­å®šã™ã‚‹.
+     * MaxSizeã‚’è¨­å®šã™ã‚‹.
      */
     public LruHashMap(int maxSize) {
-        /* true‚É‚·‚é‚±‚Æ‚ÅAMap‚ÅÅ‚àQÆ‚³‚ê‚Ä‚¢‚È‚¢‚à‚Ì‚ªíœ‚³‚ê‚é.(5) */
-        // Ši”[‚·‚é—v‘f”100‚É‘Î‚µA4/3”{‚ÌÅ‘å—e—Ê134‚ğİ’è.
+        /* trueã«ã™ã‚‹ã“ã¨ã§ã€Mapã§æœ€ã‚‚å‚ç…§ã•ã‚Œã¦ã„ãªã„ã‚‚ã®ãŒå‰Šé™¤ã•ã‚Œã‚‹.(5) */
+        // æ ¼ç´ã™ã‚‹è¦ç´ æ•°100ã«å¯¾ã—ã€4/3å€ã®æœ€å¤§å®¹é‡134ã‚’è¨­å®š.
         super(134, 0.75f, true);
         this.maxSize = maxSize;
     }
@@ -26,7 +26,7 @@ public class LruHashMap<K, V> extends LinkedHashMap<K, V> {
      */
     @Override
     protected boolean removeEldestEntry(Map.Entry<K, V> eldest) {
-        /* Map‚ÌƒTƒCƒY‚ªmax‚Å‚ ‚ê‚ÎAÅ‚àQÆ‚³‚ê‚Ä‚¢‚È‚¢‚à‚Ì‚ğíœ.(5) */
+        /* Mapã®ã‚µã‚¤ã‚ºãŒmaxã§ã‚ã‚Œã°ã€æœ€ã‚‚å‚ç…§ã•ã‚Œã¦ã„ãªã„ã‚‚ã®ã‚’å‰Šé™¤.(5) */
         return size() > maxSize;
     }
 }

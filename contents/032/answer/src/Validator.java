@@ -1,14 +1,14 @@
 /**
- * 032‚Å—p‚¢‚é3‚Ì”{””»’è‘•’u.
+ * 032ã§ç”¨ã„ã‚‹3ã®å€æ•°åˆ¤å®šè£…ç½®.
  *
  * @author jsfkdt
  */
 interface Validator {
     /**
-     * 3‚Ì”{”‚©‚Ç‚¤‚©‚Ì”»’èŒ‹‰Ê‚ğ•Ô‹p.
+     * 3ã®å€æ•°ã‹ã©ã†ã‹ã®åˆ¤å®šçµæœã‚’è¿”å´.
      *
-     * @param number w’è‚Ìˆø”
-     * @return booleanŒ^
+     * @param number æŒ‡å®šã®å¼•æ•°
+     * @return booleanå‹
      */
     public boolean isValid(int a);
 }

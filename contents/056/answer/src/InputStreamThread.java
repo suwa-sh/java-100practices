@@ -6,19 +6,19 @@ import java.util.List;
 import java.util.ArrayList;
 
 /**
- * 056‚Ì‰ğ“š‚Å‚·.InputStream‚ğ“Ç‚İ‚ŞƒXƒŒƒbƒhƒNƒ‰ƒX.
+ * 056ã®è§£ç­”ã§ã™.InputStreamã‚’èª­ã¿è¾¼ã‚€ã‚¹ãƒ¬ãƒƒãƒ‰ã‚¯ãƒ©ã‚¹.
  *
  * @author jsfkdt
  */
 public class InputStreamThread extends Thread {
-    /* BufferedReader‚Ìƒvƒ‰ƒCƒx[ƒg•Ï”. */
+    /* BufferedReaderã®ãƒ—ãƒ©ã‚¤ãƒ™ãƒ¼ãƒˆå¤‰æ•°. */
     private BufferedReader bufferReader;
     
-    /* •W€o—ÍEƒGƒ‰[“à—e‚ÌŠi”[—pƒŠƒXƒg.  */
+    /* æ¨™æº–å‡ºåŠ›ãƒ»ã‚¨ãƒ©ãƒ¼å†…å®¹ã®æ ¼ç´ç”¨ãƒªã‚¹ãƒˆ.  */
     private List<String> outputList = new ArrayList<String>();
     
     /**
-     * BufferedReader‚ÉŠi”[‚·‚é.
+     * BufferedReaderã«æ ¼ç´ã™ã‚‹.
      *
      * @param day InputStream
      */
@@ -27,12 +27,12 @@ public class InputStreamThread extends Thread {
     }
     
     /**
-     * o—ÍEƒGƒ‰[“à—e‚ğList•Ï”‚ÉŠi”[‚·‚é.
+     * å‡ºåŠ›ãƒ»ã‚¨ãƒ©ãƒ¼å†…å®¹ã‚’Listå¤‰æ•°ã«æ ¼ç´ã™ã‚‹.
      */
     @Override
     public void run() {
         try {
-            // o—Í“à—e‚ğo—Í—p”z—ñ‚É“Ç‚İ‚İ.
+            // å‡ºåŠ›å†…å®¹ã‚’å‡ºåŠ›ç”¨é…åˆ—ã«èª­ã¿è¾¼ã¿.
             bufferReader.lines().forEach(line -> outputList.add(line));
             
             bufferReader.close();
@@ -42,9 +42,9 @@ public class InputStreamThread extends Thread {
     }
     
     /**
-     * o—Í•¶š—ñ‚ğæ“¾‚·‚é.
+     * å‡ºåŠ›æ–‡å­—åˆ—ã‚’å–å¾—ã™ã‚‹.
      *
-     * @return o—Í•¶š—ñ‚ÌƒŠƒXƒg.
+     * @return å‡ºåŠ›æ–‡å­—åˆ—ã®ãƒªã‚¹ãƒˆ.
      */
     public List<String> getStringList() {
         return outputList;

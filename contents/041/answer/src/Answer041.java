@@ -1,48 +1,17 @@
-/**
- * 041‚Ì‰ğ“š‚Å‚·.
- *
- * @author jsfkdt
- */
-public class Answer041 extends Thread {
-    /**
-     * 041‚Ì‰ğ“š‚Å‚·.
-     * @param arguments g—p‚µ‚Ü‚¹‚ñ.
-     */    
-    public static void main(final String[] args) {
-        final MethodForThread calcAndOutput = new MethodForThread();
-        new Thread() {
-            /**
-             * ƒXƒŒƒbƒhA‚ğÀs‚·‚é.
-             */
-            public void run() {
-                
-                try {
-                    System.out.println("ƒXƒŒƒbƒhA‚Å‚·B 2•b–°‚è‚Ü‚·EEE");
-                    sleep(2000L);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                
-                // ‰ÁZƒƒ\ƒbƒh‚ğÀs.
-                calcAndOutput.calc();
-            }
-        }.start();
-        
-        new Thread() {
-            /**
-             * ƒXƒŒƒbƒhB‚ğÀs‚·‚é.
-             */            
-            public void run() {
-                try {
-                    sleep(500L);
-                    System.out.println("1‚©‚ç10000‚Ü‚Å‚Ì‡Œv‚ğŒvZ‚µ‚Ü‚·I");
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                
-                // o—ÍŒ‹‰Ê•\¦ƒƒ\ƒbƒh‚ğÀs.
-                calcAndOutput.output();
-            }
-        }.start();
+public class Answer041 {
+    // å„ã‚¹ãƒ¬ãƒƒãƒ‰ãŒåŒæœŸã«ä½¿ç”¨ã™ã‚‹ãƒ­ãƒƒã‚¯ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+    public static final Object lock = new Object();
+
+    public static void main(String[] arguments) {
+        // ã‚°ãƒ­ãƒ¼ãƒãƒ«å¤‰æ•°ã«åŠ ç®—ã™ã‚‹å‡¦ç†ã‚’å®Ÿè¡Œã™ã‚‹ã‚¹ãƒ¬ãƒƒãƒ‰
+        Thread threadA = new SumThread();
+        // ã‚°ãƒ­ãƒ¼ãƒãƒ«å¤‰æ•°ã®å€¤ã‚’å‡ºåŠ›ã™ã‚‹å‡¦ç†ã‚’å®Ÿè¡Œã™ã‚‹ã‚¹ãƒ¬ãƒƒãƒ‰
+        Thread threadB = new ShowThread();
+
+        // ã‚°ãƒ­ãƒ¼ãƒãƒ«å¤‰æ•°ã¸ã®åŠ ç®—å‡¦ç†ã‚’åˆæœŸåŒ–
+        GlobalNum.clearCalculation();
+
+        threadB.start();
+        threadA.start();
     }
 }

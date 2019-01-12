@@ -1,17 +1,17 @@
 /**
- * 022‚Ì‰ğ“š‚Å‚·.
+ * 022ã®è§£ç­”ã§ã™.
  *
  * @author jsfkdt
  */
 public class Answer022 {
     /**
-     * 022‚Ì‰ğ“š‚Å‚·.
-     * ’è‚ß‚ç‚ê‚½ğŒ‚Ìˆø”‚ğ•W€o—Í‚·‚é.
+     * 022ã®è§£ç­”ã§ã™.
+     * å®šã‚ã‚‰ã‚ŒãŸæ¡ä»¶ã®å¼•æ•°ã‚’æ¨™æº–å‡ºåŠ›ã™ã‚‹.
      * 
      * @param arguments
      */
     public static void main(final String[] args) {
-        /** ˆø”‚ÌŒÂ” **/
+        /** å¼•æ•°ã®å€‹æ•° **/
         final int len = args.length;
         
         if (len == 3) {
@@ -21,17 +21,17 @@ public class Answer022 {
         } else if (len == 7) {
             listNames(args[0], args[3], args[5], args[6]);
         } else {
-            // USAGE‚ğo—Í.
-            System.err.println("Usage : ˆø”‚Ì”‚ğ3ŒÂA5ŒÂA7ŒÂ‚Ì‚¢‚¸‚ê‚©‚É‚µ‚ÄÄÀs‚µ‚Ä‚­‚¾‚³‚¢");
-            // I—¹ƒR[ƒh‚ğ2‚Æ‚µ‚ÄA‹­§I—¹.
+            // USAGEã‚’å‡ºåŠ›.
+            System.err.println("Usage : å¼•æ•°ã®æ•°ã‚’3å€‹ã€5å€‹ã€7å€‹ã®ã„ãšã‚Œã‹ã«ã—ã¦å†å®Ÿè¡Œã—ã¦ãã ã•ã„");
+            // çµ‚äº†ã‚³ãƒ¼ãƒ‰ã‚’2ã¨ã—ã¦ã€å¼·åˆ¶çµ‚äº†.
             System.exit(2);
         }
     }
     
     /**
-     * “ü—Í‚³‚ê‚½ˆø”‚Ìˆê•”‚ğ•W€o—Í‚·‚é.
+     * å…¥åŠ›ã•ã‚ŒãŸå¼•æ•°ã®ä¸€éƒ¨ã‚’æ¨™æº–å‡ºåŠ›ã™ã‚‹.
      *
-     * @param  names ˆø”‚Ì’l
+     * @param  names å¼•æ•°ã®å€¤
      */
     private static void listNames(String... names) {
         for (String name : names) {

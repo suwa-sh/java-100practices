@@ -1,29 +1,29 @@
 import java.util.Date;
 /**
- * 073‚Ì‰ğ“š‚Å‚·.
+ * 073ã®è§£ç­”ã§ã™.
  *
  * @author jsfkdt
  */
 public class Answer073 {
     /**
-     * 073‚Ì‰ğ“š‚Å‚·.
+     * 073ã®è§£ç­”ã§ã™.
      *
-     * @param arguments g—p‚µ‚Ü‚¹‚ñ.
+     * @param arguments ä½¿ç”¨ã—ã¾ã›ã‚“.
      */
     public static void main(final String[] args){
-        // DateƒRƒ}ƒ“ƒh‚ğÀs
+        // Dateã‚³ãƒãƒ³ãƒ‰ã‚’å®Ÿè¡Œ
         output("Date", CommandFactory.getInstance().createCurrentCommand());
-        // RandomƒRƒ}ƒ“ƒh‚ğÀs
+        // Randomã‚³ãƒãƒ³ãƒ‰ã‚’å®Ÿè¡Œ
         output("Random", CommandFactory.getInstance().createRandomIntegerCommand());
     }
     
     public static void output(String commandName, Command command) {
-        System.out.println(commandName + "ƒRƒ}ƒ“ƒh‚ÌÀs");
-        System.out.println("Às‘OƒXƒe[ƒ^ƒXF" + command.getStatus());
+        System.out.println(commandName + "ã‚³ãƒãƒ³ãƒ‰ã®å®Ÿè¡Œ");
+        System.out.println("å®Ÿè¡Œå‰ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ï¼š" + command.getStatus());
         command.execute();
-        System.out.println("ÀsŒãƒXƒe[ƒ^ƒXF" + command.getStatus());
-        System.out.println("ÀsŒ‹‰ÊF" + command.getResult());
-        System.out.println("—áŠOF" + command.getException());
+        System.out.println("å®Ÿè¡Œå¾Œã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ï¼š" + command.getStatus());
+        System.out.println("å®Ÿè¡Œçµæœï¼š" + command.getResult());
+        System.out.println("ä¾‹å¤–ï¼š" + command.getException());
         System.out.println();
     }
 }

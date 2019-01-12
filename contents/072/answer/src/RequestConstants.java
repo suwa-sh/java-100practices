@@ -1,5 +1,5 @@
 public interface RequestConstants {
-    /** ‘€ì•¶š—ñ‚ÉŠÖ‚·‚é’è”‚Ì’è‹` */
+    /** æ“ä½œæ–‡å­—åˆ—ã«é–¢ã™ã‚‹å®šæ•°ã®å®šç¾© */
     public static final String OPERATION_ALL = "all";
     public static final String OPERATION_UPDATE = "update";
     public static final String OPERATION_DELETE = "delete";

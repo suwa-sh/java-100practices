@@ -1,22 +1,22 @@
 /**
- * page•¶š—ñ”äŠr‚ğs‚¢AŠe‘€ì‚ğs‚¤ƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ğ¶¬‚·‚é.
+ * pageæ–‡å­—åˆ—æ¯”è¼ƒã‚’è¡Œã„ã€å„æ“ä½œã‚’è¡Œã†ã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ç”Ÿæˆã™ã‚‹.
  *
  * @author jsfkdt
  */
 public RequestProcessorFactory implements RequestConstants {
     
     /**
-     * È—ª.
+     * çœç•¥.
      */
     private RequestProcessorFactory() {
     }
     
     /**
-     * È—ª.
+     * çœç•¥.
      */
     public static RequestProcessor createRequestProcessor(String page) {
         if (page == null) {
-            // page‚ªnull‚Ìê‡Anull‚ğ•Ô‹p.
+            // pageãŒnullã®å ´åˆã€nullã‚’è¿”å´.
             return null;
         }
         
@@ -38,7 +38,7 @@ public RequestProcessorFactory implements RequestConstants {
         case OPERATION_ISSUE:
             return new IssueRequestProcessor();
         default:
-            // page‚ªŒ©‚Â‚©‚ç‚È‚¢ê‡Anull‚ğ•Ô‹p.
+            // pageãŒè¦‹ã¤ã‹ã‚‰ãªã„å ´åˆã€nullã‚’è¿”å´.
             return null;
         
         }

@@ -1,38 +1,38 @@
 import java.lang.reflect.Method;
 import java.lang.reflect.InvocationTargetException;
 /**
- * 029‚Ì‰ğ“š‚Å‚·.
+ * 029ã®è§£ç­”ã§ã™.
  *
  * @author jsfkdt
  */
 public class Answer029 {
     /**
-     * 029‚Ì‰ğ“š‚Å‚·.
-     * ƒŠƒtƒŒƒNƒVƒ‡ƒ“‚ğ—p‚¢‚ÄAStringBufferƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ğ¶¬‚µA
-     * append(String)ƒƒ\ƒbƒh‚ğŒÄ‚Ño‚·.
-     * Answer029‚ğ•W€o—Í‚Åæ“¾‚·‚é.
+     * 029ã®è§£ç­”ã§ã™.
+     * ãƒªãƒ•ãƒ¬ã‚¯ã‚·ãƒ§ãƒ³ã‚’ç”¨ã„ã¦ã€StringBufferã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ç”Ÿæˆã—ã€
+     * append(String)ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å‘¼ã³å‡ºã™.
+     * Answer029ã‚’æ¨™æº–å‡ºåŠ›ã§å–å¾—ã™ã‚‹.
      *
-     * @param arguments g—p‚µ‚Ü‚¹‚ñ.
+     * @param arguments ä½¿ç”¨ã—ã¾ã›ã‚“.
      */
     public static void main(final String[] args) {
         
         try {
-            /* ƒWƒFƒlƒŠƒNƒX‚ğ—p‚¢‚ÄAŒÄ‚Ño‚·ƒNƒ‰ƒX‚ğ‰Šú‰». */
+            /* ã‚¸ã‚§ãƒãƒªã‚¯ã‚¹ã‚’ç”¨ã„ã¦ã€å‘¼ã³å‡ºã™ã‚¯ãƒ©ã‚¹ã‚’åˆæœŸåŒ–. */
             Class<?> stringBufferClass = null;
             
-            /* ŒÄ‚Ño‚·ƒƒ\ƒbƒh‚Ì‰Šú‰». */
+            /* å‘¼ã³å‡ºã™ãƒ¡ã‚½ãƒƒãƒ‰ã®åˆæœŸåŒ–. */
             Method appendMethod = null;
             
-            // g—p‚·‚éƒNƒ‰ƒX‚ğ–¾¦‚µAŒÄ‚Ño‚·.
+            // ä½¿ç”¨ã™ã‚‹ã‚¯ãƒ©ã‚¹ã‚’æ˜ç¤ºã—ã€å‘¼ã³å‡ºã™.
             stringBufferClass = Class.forName("java.lang.StringBuffer");
             
-            // appendƒƒ\ƒbƒh‚ğg—p‚·‚é.ˆø”‚ÍStringŒ^‚Å‚ ‚é‚±‚Æ‚ğ–¾¦‚·‚é.
+            // appendãƒ¡ã‚½ãƒƒãƒ‰ã‚’ä½¿ç”¨ã™ã‚‹.å¼•æ•°ã¯Stringå‹ã§ã‚ã‚‹ã“ã¨ã‚’æ˜ç¤ºã™ã‚‹.
             appendMethod = stringBufferClass.getMethod("append", String.class);
             
-            // StringBufferƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ğ¶¬.
+            // StringBufferã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ç”Ÿæˆ.
             StringBuffer sb = (StringBuffer) stringBufferClass.newInstance();
             
-            // ’l‚Ì‘}“ü.
+            // å€¤ã®æŒ¿å…¥.
             appendMethod.invoke(sb, "A");
             appendMethod.invoke(sb, "n");
             appendMethod.invoke(sb, "s");
@@ -41,28 +41,28 @@ public class Answer029 {
             appendMethod.invoke(sb, "r");
             appendMethod.invoke(sb, "029");
             
-            // ˜AŒ‹‚³‚ê‚½’l‚Ì•W€o—Í‚ğs‚¤.
+            // é€£çµã•ã‚ŒãŸå€¤ã®æ¨™æº–å‡ºåŠ›ã‚’è¡Œã†.
             System.out.println(sb.toString());
         } catch (NullPointerException e) {
-            // nullƒGƒ‰[.
+            // nullã‚¨ãƒ©ãƒ¼.
             e.printStackTrace ();
         } catch (ClassNotFoundException e) {
-            // ƒNƒ‰ƒX‚ª‘¶İ‚µ‚È‚¢.
+            // ã‚¯ãƒ©ã‚¹ãŒå­˜åœ¨ã—ãªã„.
             e.printStackTrace ();
         } catch (NoSuchMethodException e) {
-            // ƒƒ\ƒbƒh‚ª‘¶İ‚µ‚È‚¢.
+            // ãƒ¡ã‚½ãƒƒãƒ‰ãŒå­˜åœ¨ã—ãªã„.
             e.printStackTrace();
         } catch (InstantiationException e) {
-            // ƒCƒ“ƒXƒ^ƒ“ƒXì¬•s‰Â.
+            // ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ä½œæˆä¸å¯.
             e.printStackTrace();
         } catch (IllegalAccessException e) {
-            // ŒÄ‚Ño‚µ:ƒAƒNƒZƒXˆá”½A•ÛŒì‚³‚ê‚Ä‚¢‚é.
+            // å‘¼ã³å‡ºã—:ã‚¢ã‚¯ã‚»ã‚¹é•åã€ä¿è­·ã•ã‚Œã¦ã„ã‚‹.
             e.printStackTrace();
         } catch (IllegalArgumentException e) {
-            // ŒÄ‚Ño‚µ:ˆø”‚ªˆÙ‚È‚é.
+            // å‘¼ã³å‡ºã—:å¼•æ•°ãŒç•°ãªã‚‹.
             e.printStackTrace();
         } catch (InvocationTargetException e) {
-            // ƒ^[ƒQƒbƒg‚Æ‚È‚éƒƒ\ƒbƒh©g‚Ì—áŠOˆ—.
+            // ã‚¿ãƒ¼ã‚²ãƒƒãƒˆã¨ãªã‚‹ãƒ¡ã‚½ãƒƒãƒ‰è‡ªèº«ã®ä¾‹å¤–å‡¦ç†.
             e.printStackTrace();
         }
     }

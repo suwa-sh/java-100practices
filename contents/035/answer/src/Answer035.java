@@ -1,17 +1,17 @@
 /**
- * 035‚Ì‰ğ“š‚Å‚·.
+ * 035ã®è§£ç­”ã§ã™.
  *
  * @author jsfkdt
  */
 public final class Answer035 implements Runnable {
-    /* ƒXƒŒƒbƒhƒOƒ‹[ƒvA. */
+    /* ã‚¹ãƒ¬ãƒƒãƒ‰ã‚°ãƒ«ãƒ¼ãƒ—A. */
     private static ThreadGroup groupA = new ThreadGroup("GroupA");
     
-    /* ƒXƒŒƒbƒhƒOƒ‹[ƒvB. */
+    /* ã‚¹ãƒ¬ãƒƒãƒ‰ã‚°ãƒ«ãƒ¼ãƒ—B. */
     private static ThreadGroup groupB = new ThreadGroup("GroupB");
     
     /**
-     * ƒOƒ‹[ƒvA,B‚ÌƒXƒŒƒbƒh‚ğŠe100ƒXƒŒƒbƒhÀs‚·‚é.
+     * ã‚°ãƒ«ãƒ¼ãƒ—A,Bã®ã‚¹ãƒ¬ãƒƒãƒ‰ã‚’å„100ã‚¹ãƒ¬ãƒƒãƒ‰å®Ÿè¡Œã™ã‚‹.
      */
     @Override public void run() {
         for (int i = 0; i < 100; i++) {
@@ -24,9 +24,9 @@ public final class Answer035 implements Runnable {
     }
     
     /**
-     * ŠeƒXƒŒƒbƒhƒOƒ‹[ƒv‚É‚¨‚¯‚éƒAƒNƒeƒBƒuƒXƒŒƒbƒh”‚ğo—Í‚·‚é.
+     * å„ã‚¹ãƒ¬ãƒƒãƒ‰ã‚°ãƒ«ãƒ¼ãƒ—ã«ãŠã‘ã‚‹ã‚¢ã‚¯ãƒ†ã‚£ãƒ–ã‚¹ãƒ¬ãƒƒãƒ‰æ•°ã‚’å‡ºåŠ›ã™ã‚‹.
      *
-     * @param point ƒJƒEƒ“ƒg‰ñ”
+     * @param point ã‚«ã‚¦ãƒ³ãƒˆå›æ•°
      */
     public static void printActiveCount(int point) {
         System.out.println("Active Threads in Thread Group " + groupA.getName() +
@@ -37,25 +37,25 @@ public final class Answer035 implements Runnable {
     }
     
     /**
-     * 035‚Ì‰ğ“š‚Å‚·.
-     * ƒXƒŒƒbƒhƒOƒ‹[ƒv‚²‚Æ‚ÉƒXƒŒƒbƒh‚ğÀs‚µA
-     * ŠeƒXƒŒƒbƒh‚É‚ÄƒAƒNƒeƒBƒu‚Å‚ ‚éƒXƒŒƒbƒh”‚ğ•W€o—Í‚·‚é.
+     * 035ã®è§£ç­”ã§ã™.
+     * ã‚¹ãƒ¬ãƒƒãƒ‰ã‚°ãƒ«ãƒ¼ãƒ—ã”ã¨ã«ã‚¹ãƒ¬ãƒƒãƒ‰ã‚’å®Ÿè¡Œã—ã€
+     * å„ã‚¹ãƒ¬ãƒƒãƒ‰ã«ã¦ã‚¢ã‚¯ãƒ†ã‚£ãƒ–ã§ã‚ã‚‹ã‚¹ãƒ¬ãƒƒãƒ‰æ•°ã‚’æ¨™æº–å‡ºåŠ›ã™ã‚‹.
      *
-     * @param arguments g—p‚µ‚Ü‚¹‚ñ.
+     * @param arguments ä½¿ç”¨ã—ã¾ã›ã‚“.
      */    
     public static void main(String[] args) throws InterruptedException {
-        /* V‚µ‚¢ƒXƒŒƒbƒh‚ğŠ„‚è“–‚Ä‚é. */
+        /* æ–°ã—ã„ã‚¹ãƒ¬ãƒƒãƒ‰ã‚’å‰²ã‚Šå½“ã¦ã‚‹. */
         Thread thread = new Thread(new Answer035());
         
-        /* ƒXƒŒƒbƒh‚ğÀs‚·‚é. */
+        /* ã‚¹ãƒ¬ãƒƒãƒ‰ã‚’å®Ÿè¡Œã™ã‚‹. */
         thread.start();
         
-        // ƒAƒNƒeƒBƒuƒXƒŒƒbƒh”‚ğo—Í‚·‚é.
+        // ã‚¢ã‚¯ãƒ†ã‚£ãƒ–ã‚¹ãƒ¬ãƒƒãƒ‰æ•°ã‚’å‡ºåŠ›ã™ã‚‹.
         for (int i = 1 ;; i++) {
             printActiveCount(i);
             thread.sleep(1000L);
             
-            // ƒAƒNƒeƒBƒuƒXƒŒƒbƒh‚ª0‚É‚È‚Á‚½‚Æ‚«‚Éƒ‹[ƒv‚ğ”²‚¯‚é.
+            // ã‚¢ã‚¯ãƒ†ã‚£ãƒ–ã‚¹ãƒ¬ãƒƒãƒ‰ãŒ0ã«ãªã£ãŸã¨ãã«ãƒ«ãƒ¼ãƒ—ã‚’æŠœã‘ã‚‹.
             if (groupA.activeCount() == 0 && groupB.activeCount() == 0) {
                 break;
             }

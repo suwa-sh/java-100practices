@@ -1,50 +1,34 @@
 import java.util.Date;
 import java.util.Calendar;
-import java.util.concurrent.ThreadLocalRandom;
+import java.util.Random;
 
-/**
- * 049‚Åg—p‚·‚éƒ†[ƒeƒBƒŠƒeƒBƒNƒ‰ƒX.
- *
- * @author jsfkdt
- */
-public final class DateUtil {
-    
+public class DateUtil {
     /**
-     * Œ»İ‚©‚çƒvƒ‰ƒXƒ}ƒCƒiƒX1“ú‚Ì”ÍˆÍ‚Åƒ‰ƒ“ƒ_ƒ€‚È“ú‚ğ¦‚·.
-     *
-     * @return Œ»İ‚©‚çƒvƒ‰ƒXƒ}ƒCƒiƒX1“ú‚Ìƒ‰ƒ“ƒ_ƒ€‚ÈDateŒ^“ú
-     */    
-    public final Date randomDayAndTime() {
-        // DateŒ^‚Ì“ú.
-        Date randomDate = new Date();
-        
-        // ˆê“úŒã‚Ì“ú.
-        final Calendar oneAfterDay = Calendar.getInstance();
-        oneAfterDay.add(Calendar.DATE, 1);
-        
-        // ˆê“ú‘O‚Ì“ú.
-        final Calendar oneBeforeDay = Calendar.getInstance();
-        oneBeforeDay.add(Calendar.DATE, -1);
-        
-        // ƒ‰ƒ“ƒ_ƒ€‚È“ú
-        final Calendar randomDay = Calendar.getInstance();
-        
-        // ƒ~ƒŠ•b‚Ì·‚ğæ“¾.
-        final long timeDiff = oneAfterDay.getTimeInMillis() - oneBeforeDay.getTimeInMillis();
-        
-        // ƒ~ƒŠ·‚Ì’l‚ğƒ‰ƒ“ƒ_ƒ€‚Åw’è.
-        // ThreadLocalRandomƒNƒ‰ƒX‚ğ—p‚¢‚ÄAw’è”ÍˆÍ“à‚ÌLongŒ^—”‚ğ¶¬‚·‚é.
-        final long randomDiffTime = ThreadLocalRandom.current().nextLong(timeDiff + 1L);
-        
-        // 1“úŒã‚Ìƒ~ƒŠ•b‚©‚çƒ‰ƒ“ƒ_ƒ€¶¬‚µ‚½ƒ~ƒŠ•b‚ğŒ¸Z.
-        final long randomTime = oneAfterDay.getTimeInMillis() - randomDiffTime;
-        
-        // æ“¾‚µ‚½ƒ~ƒŠ•b‚ğƒJƒŒƒ“ƒ_[‚Éİ’è.
-        randomDay.setTimeInMillis(randomTime);
-        
-        // CalendarŒ^‚ğDateŒ^‚Ö•ÏŠ·.
-        randomDate = randomDay.getTime();
-        
-        return randomDate;
+     * ç¾åœ¨æ™‚åˆ»ã‚’åŸºæº–ã«å‰å¾Œä¸€æ—¥ã®ç¯„å›²ã§ãƒ©ãƒ³ãƒ€ãƒ ãªæ—¥æ™‚ã‚’è¿”ã™.
+     */
+    public static Date getRandomDate() {
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(new Date());
+
+        // æ™‚ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã«å¯¾ã—ã¦-23ã‹ã‚‰23ã®é–“ã®ãƒ©ãƒ³ãƒ€ãƒ ãªå€¤ã‚’åŠ ç®—ã™ã‚‹
+        cal.add(Calendar.HOUR, getRandomInt(23));
+        // åˆ†ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã«å¯¾ã—ã¦-59ã‹ã‚‰59ã®é–“ã®ãƒ©ãƒ³ãƒ€ãƒ ãªå€¤ã‚’åŠ ç®—ã™ã‚‹
+        cal.add(Calendar.MINUTE, getRandomInt(59));
+        // ç§’ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã«å¯¾ã—ã¦-59ã‹ã‚‰59ã®é–“ã®ãƒ©ãƒ³ãƒ€ãƒ ãªå€¤ã‚’åŠ ç®—ã™ã‚‹
+        cal.add(Calendar.SECOND, getRandomInt(59));
+        // ãƒŸãƒªç§’ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã«å¯¾ã—ã¦-999ã‹ã‚‰999ã®é–“ã®ãƒ©ãƒ³ãƒ€ãƒ ãªå€¤ã‚’åŠ ç®—ã™ã‚‹
+        cal.add(Calendar.MILLISECOND, getRandomInt(999));
+
+        return cal.getTime();
+    }
+
+    /**
+     * 0ã‚’åŸºæº–ã«å‰å¾Œã‚’æŒ‡å®šã•ã‚ŒãŸå€¤ã®ç¯„å›²ã§ãƒ©ãƒ³ãƒ€ãƒ ãªå€¤ã‚’è¿”ã™.
+     * ex.) å¼•æ•°ã§10ã‚’æŒ‡å®šã•ã‚ŒãŸã‚‰ã€-10ã‹ã‚‰10ã®ç¯„å›²ã§ãƒ©ãƒ³ãƒ€ãƒ ã®æ•°å€¤ã‚’è¿”ã™
+     * @param  int range ãƒ©ãƒ³ãƒ€ãƒ ã§è¿”ã™å€¤ã®çµ¶å¯¾å€¤ã®æœ€å¤§å€¤
+     */
+    private static int getRandomInt(int range) {
+        Random rand = new Random();
+        return (rand.nextInt(range * 2 + 1) - range);
     }
 }

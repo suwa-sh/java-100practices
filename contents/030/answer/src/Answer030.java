@@ -4,53 +4,53 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.IOException;
 /**
- * 030‚Ì‰ğ“š‚Å‚·.
+ * 030ã®è§£ç­”ã§ã™.
  *
  * @author jsfkdt
  */
 public class Answer030 {
     /**
-     * 030‚Ì‰ğ“š‚Å‚·.
-     * @param arguments g—p‚µ‚Ü‚¹‚ñ.
+     * 030ã®è§£ç­”ã§ã™.
+     * @param args ä½¿ç”¨ã—ã¾ã›ã‚“.
      */
     public static void main(final String[] args) {
         
-        // ƒNƒ‰ƒX‚ğƒVƒŠƒAƒ‰ƒCƒY‚µ‚Äƒtƒ@ƒCƒ‹‚É•Û‘¶.
+        // ã‚¯ãƒ©ã‚¹ã‚’ã‚·ãƒªã‚¢ãƒ©ã‚¤ã‚ºã—ã¦ãƒ•ã‚¡ã‚¤ãƒ«ã«ä¿å­˜.
         try (ObjectOutputStream outputObject = new ObjectOutputStream(new FileOutputStream("Sample.txt"))) {
-            
-            // ƒVƒŠƒAƒ‰ƒCƒYƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ğ¶¬.
+
+            // ã‚·ãƒªã‚¢ãƒ©ã‚¤ã‚ºã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ç”Ÿæˆ.
             ForSerializeClass serializeClass = new ForSerializeClass();
             
-            // ƒIƒuƒWƒFƒNƒg‚ÌƒCƒ“ƒXƒ^ƒ“ƒX•Ï”‚É’l‚ğİ’è‚·‚é.
+            // ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹å¤‰æ•°ã«å€¤ã‚’è¨­å®šã™ã‚‹.
             serializeClass.setIntInstance(100);
             serializeClass.setStringInstance("Answer030");
             
-            // ƒVƒŠƒAƒ‰ƒCƒY‘ÎÛ‚ÌƒNƒ‰ƒX‚Ì‘‚«‚İ
+            // ã‚·ãƒªã‚¢ãƒ©ã‚¤ã‚ºå¯¾è±¡ã®ã‚¯ãƒ©ã‚¹ã®æ›¸ãè¾¼ã¿
             outputObject.writeObject(serializeClass);
             
         } catch (IOException e) {
-            // “üo—ÍƒGƒ‰[.
+            // å…¥å‡ºåŠ›ã‚¨ãƒ©ãƒ¼.
             e.printStackTrace();
         }
         
-        // ƒtƒ@ƒCƒ‹‚ğƒfƒVƒŠƒAƒ‰ƒCƒY‚µAƒCƒ“ƒXƒ^ƒ“ƒX•Ï”‚ğ•W€o—Í.
+        // ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ãƒ‡ã‚·ãƒªã‚¢ãƒ©ã‚¤ã‚ºã—ã€ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹å¤‰æ•°ã‚’æ¨™æº–å‡ºåŠ›.
         try (ObjectInputStream inputObject = new ObjectInputStream(new FileInputStream("Sample.txt"))) {
             
-            // ƒIƒuƒWƒFƒNƒg‚Ì“Ç‚İ‚İ.
+            // ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®èª­ã¿è¾¼ã¿.
             ForSerializeClass serializeClass = (ForSerializeClass) inputObject.readObject();
             
-            // “Ç‚İ‚ñ‚¾ƒIƒuƒWƒFƒNƒg‚ÌƒCƒ“ƒXƒ^ƒ“ƒX•Ï”‚Ì‘Ã“–«‚ğƒ`ƒFƒbƒN.
+            // èª­ã¿è¾¼ã‚“ã ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹å¤‰æ•°ã®å¦¥å½“æ€§ã‚’ãƒã‚§ãƒƒã‚¯.
             assert serializeClass.getIntInstance() == 100
-                : "ƒfƒVƒŠƒAƒ‰ƒCƒY‚É¸”s‚µ‚Ü‚µ‚½BintŒ^•Ï”‚Ì’lF" + serializeClass.getIntInstance();
+                : "ãƒ‡ã‚·ãƒªã‚¢ãƒ©ã‚¤ã‚ºã«å¤±æ•—ã—ã¾ã—ãŸã€‚intå‹å¤‰æ•°ã®å€¤ï¼š" + serializeClass.getIntInstance();
             
             assert serializeClass.getStringInstance().equals("Answer030")
-                : "ƒfƒVƒŠƒAƒ‰ƒCƒY‚É¸”s‚µ‚Ü‚µ‚½BStringŒ^•Ï”‚Ì’lF" + serializeClass.getStringInstance();
+                : "ãƒ‡ã‚·ãƒªã‚¢ãƒ©ã‚¤ã‚ºã«å¤±æ•—ã—ã¾ã—ãŸã€‚Stringå‹å¤‰æ•°ã®å€¤ï¼š" + serializeClass.getStringInstance();
             
         } catch (IOException  e) {
-            // “üo—ÍƒGƒ‰[.
+            // å…¥å‡ºåŠ›ã‚¨ãƒ©ãƒ¼.
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
-            // ƒNƒ‰ƒX‚ª‘¶İ‚µ‚È‚¢.
+            // ã‚¯ãƒ©ã‚¹ãŒå­˜åœ¨ã—ãªã„.
             e.printStackTrace();
         }
     }

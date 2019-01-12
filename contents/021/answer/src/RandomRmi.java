@@ -2,15 +2,15 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 
 /**
- * 021‚Ì‰ğ“š‚Å‚·.
+ * 021ã®è§£ç­”ã§ã™.
  *
  * @author jsfkdt
  */
 public interface RandomRmi extends Remote {
     
     /**
-     * 021‚Ì‰ğ“š‚Å‚·.0`7‚Ì”CˆÓ‚Ì®”‚ğ•Ô‚µ‚Ü‚·.
-     * @return 0`7‚Ì”CˆÓ‚Ì®”iƒ‰ƒ“ƒ_ƒ€j
+     * 021ã®è§£ç­”ã§ã™.0ã€œ7ã®ä»»æ„ã®æ•´æ•°ã‚’è¿”ã—ã¾ã™.
+     * @return 0ã€œ7ã®ä»»æ„ã®æ•´æ•°ï¼ˆãƒ©ãƒ³ãƒ€ãƒ ï¼‰
      */
     int returnRandom() throws RemoteException;
 }

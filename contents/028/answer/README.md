@@ -1,6 +1,8 @@
-[問題](../README.md)
+# 解答
+"2"が出力される
 
-***
-# 028：解答例
-## 出力結果
-`2`
+Knock028AクラスのgetValue()をオーバーライドしたKnock028BクラスのgetValue()が呼び出される
+
+
+# 参考
+http://docs.oracle.com/javase/specs/jls/se8/html/jls-8.html#jls-8.4.8

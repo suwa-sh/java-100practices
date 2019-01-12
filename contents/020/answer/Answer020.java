@@ -18,10 +18,12 @@ public class Answer020 {
     private static void createNonGenericsList() {
         List nonGenericsList = new ArrayList();
         for (String medal : MEDALS) {
-            nonGenericsList.add((String) medal);
+            nonGenericsList.add(medal);
         }
         for (int i = 0; i < nonGenericsList.size(); i++) {
-            System.out.println((String) nonGenericsList.get(i));
+            // Object型として保持されているので、取り出し時にキャストが必要
+            String medal = (String) nonGenericsList.get(i);
+            System.out.println(medal);
         }
     }
 

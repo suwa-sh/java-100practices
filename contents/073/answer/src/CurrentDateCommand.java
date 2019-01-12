@@ -1,7 +1,7 @@
 import java.util.Date;
 
 /**
- * 073�ŗp���郉���_���Ȑ��l�擾�R�}���h.
+ * 073で用いるランダムな数値取得コマンド.
  *
  * @author jsfkdt
  */

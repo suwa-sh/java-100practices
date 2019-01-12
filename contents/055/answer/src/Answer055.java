@@ -5,29 +5,29 @@ import java.nio.file.Paths;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * 055‚Ì‰ğ“š‚Å‚·.
+ * 055ã®è§£ç­”ã§ã™.
  *
  * @author jsfkdt
  */
 public class Answer055 {
     /**
-     * 055‚Ì‰ğ“š‚Å‚·.
-     * UTF-8‚ÌƒeƒLƒXƒgƒtƒ@ƒCƒ‹‚ğ“Ç‚İ‚İAŠes‚Ì•¶š”‚Ì‡Œv‚ğo—Í‚·‚é.
+     * 055ã®è§£ç­”ã§ã™.
+     * UTF-8ã®ãƒ†ã‚­ã‚¹ãƒˆãƒ•ã‚¡ã‚¤ãƒ«ã‚’èª­ã¿è¾¼ã¿ã€å„è¡Œã®æ–‡å­—æ•°ã®åˆè¨ˆã‚’å‡ºåŠ›ã™ã‚‹.
      *
-     * @param arguments g—p‚µ‚Ü‚¹‚ñ.
+     * @param arguments ä½¿ç”¨ã—ã¾ã›ã‚“.
      */
     public static void main(final String[] args) {
         
-        // ƒeƒLƒXƒgƒtƒ@ƒCƒ‹‚ğ“Ç‚İ‚İ
+        // ãƒ†ã‚­ã‚¹ãƒˆãƒ•ã‚¡ã‚¤ãƒ«ã‚’èª­ã¿è¾¼ã¿
         try (BufferedReader reader = Files.newBufferedReader(Paths.get("Answer055.txt"))) {
-            /* •¶š”‚Ì‡Œv. */
+            /* æ–‡å­—æ•°ã®åˆè¨ˆ. */
             AtomicInteger sum = new AtomicInteger(0);
             
-            // ˆês–ˆ‚Ì•¶š”‚ğæ“¾‚µA{@code sum}‚É‘«‚µ‚Ä‚¢‚­.
+            // ä¸€è¡Œæ¯ã®æ–‡å­—æ•°ã‚’å–å¾—ã—ã€{@code sum}ã«è¶³ã—ã¦ã„ã.
             reader.lines().parallel().forEach(line -> sum.addAndGet(line.length()));
             
-            // •¶š”‚ğƒJƒEƒ“ƒg‚µA•W€o—Í‚·‚é.
-            System.out.println(sum + "•¶š");
+            // æ–‡å­—æ•°ã‚’ã‚«ã‚¦ãƒ³ãƒˆã—ã€æ¨™æº–å‡ºåŠ›ã™ã‚‹.
+            System.out.println(sum + "æ–‡å­—");
             
         } catch (IOException e) {
             e.printStackTrace();

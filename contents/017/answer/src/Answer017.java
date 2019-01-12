@@ -4,66 +4,66 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicLong;
 
 /**
- * 017‚Ì‰ð“š‚Å‚·B
+ * 017ã®è§£ç­”ã§ã™ã€‚
  *
  * @author jsfkdt
  */
 public class Answer017 {
 
-    /** ƒ‹[ƒv‰ñ”. */
+    /** ãƒ«ãƒ¼ãƒ—å›žæ•°. */
     private static final int COUNT = 1_000_000;
 
-    /** ‚ ‚é long •Ï”. */
+    /** ã‚ã‚‹ long å¤‰æ•°. */
     private static volatile long variable = -1L;
     
     /**
-     * 017‚Ì‰ð“š‚Å‚·.
-     * @param arguments Žg—p‚µ‚Ü‚¹‚ñ.
+     * 017ã®è§£ç­”ã§ã™.
+     * @param arguments ä½¿ç”¨ã—ã¾ã›ã‚“.
      */
     public static void main(final String[] args) throws InterruptedException {
-        // •¡”ƒXƒŒƒbƒh‚ÌI—¹‚ð“¯Šú‚·‚éŽd‘g‚Ý
-        final CountDownLatch latch = new CountDownLatch(2); // ƒXƒŒƒbƒh‚ª2‚Â‚Æ‚àI—¹‚·‚é‚Ü‚Å‘Ò‚Â‚½‚ß‚ÌƒNƒ‰ƒX.
-        final ExecutorService es = Executors.newFixedThreadPool(2); // 2‚Â‚ÌƒXƒŒƒbƒh‚ð•À—ñˆ—‚³‚¹‚é‚½‚ß‚ÌƒNƒ‰ƒX.
-        final AtomicLong atom = new AtomicLong(); // longŒ^•Ï”‚ðƒAƒgƒ~ƒbƒN‚È’l‚ÉÝ’è‚·‚é‚½‚ß‚ÌƒNƒ‰ƒX.
+        // è¤‡æ•°ã‚¹ãƒ¬ãƒƒãƒ‰ã®çµ‚äº†ã‚’åŒæœŸã™ã‚‹ä»•çµ„ã¿
+        final CountDownLatch latch = new CountDownLatch(2); // ã‚¹ãƒ¬ãƒƒãƒ‰ãŒ2ã¤ã¨ã‚‚çµ‚äº†ã™ã‚‹ã¾ã§å¾…ã¤ãŸã‚ã®ã‚¯ãƒ©ã‚¹.
+        final ExecutorService es = Executors.newFixedThreadPool(2); // 2ã¤ã®ã‚¹ãƒ¬ãƒƒãƒ‰ã‚’ä¸¦åˆ—å‡¦ç†ã•ã›ã‚‹ãŸã‚ã®ã‚¯ãƒ©ã‚¹.
+        final AtomicLong atom = new AtomicLong(); // longåž‹å¤‰æ•°ã‚’ã‚¢ãƒˆãƒŸãƒƒã‚¯ãªå€¤ã«è¨­å®šã™ã‚‹ãŸã‚ã®ã‚¯ãƒ©ã‚¹.
 
-        // ƒXƒŒƒbƒhA.
+        // ã‚¹ãƒ¬ãƒƒãƒ‰A.
         es.submit(() -> {
             for (int i = 0; i < COUNT; i++) {
                 
-                /** •]‰¿—p‚Ì•Ï” **/
+                /** è©•ä¾¡ç”¨ã®å¤‰æ•° **/
                 long atomicVariable;
     
-                // ŽQÆ’l‚ðƒAƒgƒ~ƒbƒN‚È’l‚ÉÝ’è.
+                // å‚ç…§å€¤ã‚’ã‚¢ãƒˆãƒŸãƒƒã‚¯ãªå€¤ã«è¨­å®š.
                 atom.set(variable);
                 
-                // ŽQÆ’l‚ð•]‰¿—p•Ï”‚É‘ã“ü.
+                // å‚ç…§å€¤ã‚’è©•ä¾¡ç”¨å¤‰æ•°ã«ä»£å…¥.
                 atomicVariable = atom.get();
                 
-                // •Ï”‚ª0‚Å‚à-1‚Å‚à‚È‚¢ê‡‚É‚»‚Ì“à—e‚ðo—Í.
+                // å¤‰æ•°ãŒ0ã§ã‚‚-1ã§ã‚‚ãªã„å ´åˆã«ãã®å†…å®¹ã‚’å‡ºåŠ›.
                 if (atomicVariable != 0 && atomicVariable != -1) {
                     System.out.printf("variable (%d) is not 0 or -1.\n", atomicVariable);
                 }
             }
             
-            // ƒXƒŒƒbƒhA‚ªI—¹‚µ‚½‚±‚Æ‚ðƒJƒEƒ“ƒg‚Ö”½‰f.
+            // ã‚¹ãƒ¬ãƒƒãƒ‰AãŒçµ‚äº†ã—ãŸã“ã¨ã‚’ã‚«ã‚¦ãƒ³ãƒˆã¸åæ˜ .
             latch.countDown();
         });
 
-        // ƒXƒŒƒbƒhB.
+        // ã‚¹ãƒ¬ãƒƒãƒ‰B.
         es.submit(() -> {
             for (int i = 0; i < COUNT; i++) {
-                // •Ï”‚ª0‚Ìê‡-1L‚ð‘ã“ü‚µA‚»‚êˆÈŠO‚Ìê‡‚Í0L‚ð‘ã“ü‚·‚é.
+                // å¤‰æ•°ãŒ0ã®å ´åˆ-1Lã‚’ä»£å…¥ã—ã€ãã‚Œä»¥å¤–ã®å ´åˆã¯0Lã‚’ä»£å…¥ã™ã‚‹.
                 if (variable == 0) {
                     variable = -1L;
                 } else {
                     variable = 0L;
                 }
             }
-            // ƒXƒŒƒbƒhB‚ªI—¹‚µ‚½‚±‚Æ‚ðƒJƒEƒ“ƒg‚Ö”½‰f.
+            // ã‚¹ãƒ¬ãƒƒãƒ‰BãŒçµ‚äº†ã—ãŸã“ã¨ã‚’ã‚«ã‚¦ãƒ³ãƒˆã¸åæ˜ .
             latch.countDown();
         });
         
-        // A, B —¼•û‚ÌI—¹‚Ü‚Å‘Ò‹@.
+        // A, B ä¸¡æ–¹ã®çµ‚äº†ã¾ã§å¾…æ©Ÿ.
         latch.await();
         es.shutdown();
     }

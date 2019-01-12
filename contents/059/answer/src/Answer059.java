@@ -16,72 +16,72 @@ import java.net.UnknownHostException;
 import java.io.IOException;
 
 /**
- * 059�̉𓚂ł�.
+ * 059の解答です.
  *
  * @author jsfkdt
  */
 public class Answer059 {
     
     /**
-     * 059�̉𓚂ł�.
-     * �����Ɏw�肳�ꂽURL�ɃA�N�Z�X���A
-     * ���X�|���X�R�[�h��W���o��.
-     * URL�̃w�b�_��{�f�B�̓��e�̓t�@�C���ɏo�͂���.
+     * 059の解答です.
+     * 引数に指定されたURLにアクセスし、
+     * レスポンスコードを標準出力.
+     * URLのヘッダやボディの内容はファイルに出力する.
      *
-     * ���A�l 0:����I��
-     *        1:�����Ɏw�肵��URL���������ĉ�����.
-     *        2:�����Ɏw�肵��URL�̃z�X�g�܂���DNS�ݒ���������ĉ�����.
-     *        3:�ēx�ڑ��������ĉ�����.
+     * 復帰値 0:正常終了
+     *        1:引数に指定したURLを見直して下さい.
+     *        2:引数に指定したURLのホストまたはDNS設定を見直して下さい.
+     *        3:再度接続し直して下さい.
      *
-     * @param arguments �g�p���܂���.
+     * @param arguments 使用しません.
      */
     public static void main(final String[] args) {
-        /* ���A�l. */
+        /* 復帰値. */
         int errorCode = 0;
         
         
-        //�z��ɒl�������Ă��Ȃ��ꍇ�A�����I��.
+        //配列に値が入っていない場合、強制終了.
         if (args.length < 1 ) {
-            System.err.println("������ URL ���w�肵�A�Ď��s���Ă��������B");
+            System.err.println("引数に URL を指定し、再実行してください。");
             System.exit(1);
         }
         
         try {
             
-            // URL�̐ݒ�.
+            // URLの設定.
             final URL url = new URL(args[0]);
             
-            // �ڑ��I�u�W�F�N�g�̐���.
+            // 接続オブジェクトの生成.
             HttpURLConnection connect = (HttpURLConnection)url.openConnection();
             
-            // URL�v�����\�b�h��ݒ�.
+            // URL要求メソッドを設定.
             connect.setRequestMethod("GET");
             
-            // ���_�C���N�g�������ŋ����Ȃ��ݒ�.
+            // リダイレクトを自動で許可しない設定.
             connect.setInstanceFollowRedirects(false);
             
-            /* ���X�|���X�R�[�h�̏o��. */
+            /* レスポンスコードの出力. */
             final int responseCode = connect.getResponseCode();
-            System.out.println("/***���X�|���X�R�[�h***/\n" + responseCode + "\n");
+            System.out.println("/***レスポンスコード***/\n" + responseCode + "\n");
             
-            /* �w�b�_�t�@�C�����쐬. */
+            /* ヘッダファイルを作成. */
             makeHeaderFile(connect);
-            System.out.println("/***���X�|���X�w�b�_���ȉ��t�@�C���ɏo�͂��܂���***/");
+            System.out.println("/***レスポンスヘッダを以下ファイルに出力しました***/");
             System.out.println("header.txt\n");
             
-            /* �{�����쐬. */
+            /* 本文を作成. */
             makeBodyFile(connect);
-            System.out.println("/***���X�|���X�{�f�B���ȉ��t�@�C���ɏo�͂��܂���***/");
+            System.out.println("/***レスポンスボディを以下ファイルに出力しました***/");
             System.out.println("body.txt");
             
         } catch (MalformedURLException e) {
             errorCode = 1;
-            // �s���Ȍ`����URL.
+            // 不正な形式のURL.
             e.printStackTrace();
             
         } catch (UnknownHostException e) {
             errorCode = 2;
-            // �z�X�g��IP�A�h���X�擾�s��.
+            // ホストのIPアドレス取得不可.
             e.printStackTrace();
             
         } catch (IOException e) {
@@ -93,23 +93,23 @@ public class Answer059 {
     }
     
     /**
-     * �ǂݍ���URL�̃w�b�_�����t�@�C���֏o�͂��܂�.
+     * 読み込んだURLのヘッダ情報をファイルへ出力します.
      *
-     * @param connectHeader URL�ڑ��I�u�W�F�N�g
+     * @param connectHeader URL接続オブジェクト
      */
     public final static void makeHeaderFile(HttpURLConnection connectHeader) {
         try (final BufferedWriter output = new BufferedWriter(new FileWriter("header.txt"))) {
-            // �w�b�_���擾.
+            // ヘッダを取得.
             final Map headers = connectHeader.getHeaderFields();
             
-            // Iterator��ݒ�.
+            // Iteratorを設定.
             final Iterator header = headers.keySet().iterator();
             
-            // Iterator�ɂ�鑖��.
+            // Iteratorによる走査.
             while(header.hasNext()){
                 final String headerKey = (String)header.next();
                 
-                // �t�@�C���֏����o��.
+                // ファイルへ書き出し.
                 output.write("  " + headerKey + ": " + headers.get(headerKey));
                 output.newLine();
             }
@@ -121,21 +121,21 @@ public class Answer059 {
     }
     
     /**
-     * �ǂݍ���URL�̖{�����t�@�C���֏o�͂��܂�.
+     * 読み込んだURLの本文をファイルへ出力します.
      *
-     * @param connectHeader URL�ڑ��I�u�W�F�N�g
+     * @param connectHeader URL接続オブジェクト
      */
     public final static void makeBodyFile(HttpURLConnection connectBody) {
         try (final BufferedInputStream input = new BufferedInputStream(connectBody.getInputStream());
              final BufferedOutputStream output = new BufferedOutputStream(new FileOutputStream("body.txt"))){
                 
-                /* �ǂݍ��񂾃o�C�g������̒���. */
+                /* 読み込んだバイト文字列の長さ. */
                 int byteLength;
-                /* ��x�ɓǂݍ��߂�ő��byte�i�[��. */
+                /* 一度に読み込める最大のbyte格納数. */
                 byte[] maxbyte = new byte[1024];
                 
-                // {@code maxbyte}�̕������ǂݍ��݁A���̕������t�@�C���ɏ�������.
-                // �ǂݍ��ރf�[�^���Ȃ��Ȃ������_��while���𔲂���.
+                // {@code maxbyte}の分だけ読み込み、その分だけファイルに書き込む.
+                // 読み込むデータがなくなった時点でwhile文を抜ける.
                 while ((byteLength = input.read(maxbyte)) != -1) {
                     output.write(maxbyte, 0, byteLength);
                 }

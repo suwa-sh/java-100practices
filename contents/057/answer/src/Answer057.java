@@ -9,43 +9,43 @@ import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
 import java.io.IOException;
 
 /**
- * 057‚Ì‰ğ“š‚Å‚·.
+ * 057ã®è§£ç­”ã§ã™.
  *
  * @author jsfkdt
  */
 public class Answer057 {
     /**
-     * 057‚Ì‰ğ“š‚Å‚·.
+     * 057ã®è§£ç­”ã§ã™.
      *
-     * @param arguments g—p‚µ‚Ü‚¹‚ñ.
+     * @param arguments ä½¿ç”¨ã—ã¾ã›ã‚“.
      */
     public static void main(final String[] args) {
         
-        // ”z—ñ‚É’l‚ª“ü‚Á‚Ä‚¢‚È‚¢ê‡A‹­§I—¹.
+        // é…åˆ—ã«å€¤ãŒå…¥ã£ã¦ã„ãªã„å ´åˆã€å¼·åˆ¶çµ‚äº†.
         if (args.length < 1 ) {
-            System.err.println("ˆø”‚ÉƒeƒLƒXƒgƒtƒ@ƒCƒ‹–¼‚ğw’è‚µAÄÀs‚µ‚Ä‚­‚¾‚³‚¢B");
+            System.err.println("å¼•æ•°ã«ãƒ†ã‚­ã‚¹ãƒˆãƒ•ã‚¡ã‚¤ãƒ«åã‚’æŒ‡å®šã—ã€å†å®Ÿè¡Œã—ã¦ãã ã•ã„ã€‚");
             System.exit(1);
         }
         
-        // ƒeƒLƒXƒgƒtƒ@ƒCƒ‹‚ğ“Ç‚İ‚İ.
+        // ãƒ†ã‚­ã‚¹ãƒˆãƒ•ã‚¡ã‚¤ãƒ«ã‚’èª­ã¿è¾¼ã¿.
         try (Stream<String> txtFile = Files.lines(Paths.get(args[0]))) {
             
-            // ˆês–ˆ‚É•W€o—Í.
+            // ä¸€è¡Œæ¯ã«æ¨™æº–å‡ºåŠ›.
             txtFile.map(line -> line).forEach(System.out::println);
             
-            // {@code filesystem}‚Ìæ“¾.
+            // {@code filesystem}ã®å–å¾—.
             final FileSystem fileSystem = FileSystems.getDefault();
             
-            // ƒRƒs[Œ³ƒtƒ@ƒCƒ‹ƒpƒX‚ğæ“¾.
+            // ã‚³ãƒ”ãƒ¼å…ƒãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ã‚’å–å¾—.
             final Path beforeFile = Paths.get(args[0]);
             
-            // ƒRƒs[æ‚ÌƒpƒX‚ğæ“¾.
+            // ã‚³ãƒ”ãƒ¼å…ˆã®ãƒ‘ã‚¹ã‚’å–å¾—.
             final Path afterFile = fileSystem.getPath(args[0] + ".read");
             
-            // ƒtƒ@ƒCƒ‹‚ğƒRƒs[.
+            // ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ã‚³ãƒ”ãƒ¼.
             Files.copy(beforeFile, afterFile, REPLACE_EXISTING);
             
-            // Œ³ƒtƒ@ƒCƒ‹‚Ìíœ.
+            // å…ƒãƒ•ã‚¡ã‚¤ãƒ«ã®å‰Šé™¤.
             Files.deleteIfExists(beforeFile);
             
         } catch (IOException e) {

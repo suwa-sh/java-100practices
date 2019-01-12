@@ -4,68 +4,68 @@ import java.util.Enumeration;
 import java.io.IOException;
 
 /**
- * 060‚Ì‰ğ“š‚Å‚·.
+ * 060ã®è§£ç­”ã§ã™.
  *
  * @author jsfkdt
  */
 public class Answer060 {
     
     /**
-     * 060‚Ì‰ğ“š‚Å‚·.
-     * ©ƒ}ƒVƒ“‚ÉƒoƒCƒ“ƒh‚³‚ê‚Ä‚¢‚é‚·‚×‚Ä‚ÌƒAƒhƒŒƒX‚É‚Â‚¢‚ÄA
-     * FQDN‚ÆIPƒAƒhƒŒƒX‚ÆMACƒAƒhƒŒƒX‚ÌƒZƒbƒg‚ğ•\¦‚·‚é.
+     * 060ã®è§£ç­”ã§ã™.
+     * è‡ªãƒã‚·ãƒ³ã«ãƒã‚¤ãƒ³ãƒ‰ã•ã‚Œã¦ã„ã‚‹ã™ã¹ã¦ã®ã‚¢ãƒ‰ãƒ¬ã‚¹ã«ã¤ã„ã¦ã€
+     * FQDNã¨IPã‚¢ãƒ‰ãƒ¬ã‚¹ã¨MACã‚¢ãƒ‰ãƒ¬ã‚¹ã®ã‚»ãƒƒãƒˆã‚’è¡¨ç¤ºã™ã‚‹.
      *
-     * @param arguments g—p‚µ‚Ü‚¹‚ñ.
+     * @param arguments ä½¿ç”¨ã—ã¾ã›ã‚“.
      */
     public static void main(final String[] args) {
         try {
-            // ƒ}ƒVƒ“ã‚Ì‘S‚Ä‚ÌƒCƒ“ƒ^ƒtƒF[ƒX‚ğæ“¾.
+            // ãƒã‚·ãƒ³ä¸Šã®å…¨ã¦ã®ã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã‚’å–å¾—.
             Enumeration interfaces = NetworkInterface.getNetworkInterfaces();
             
-            // ƒCƒ“ƒ^[ƒtƒFƒCƒX‚ª–³‚¯‚ê‚ÎAƒXƒLƒbƒv.
-            if (interfaces != null) {
-                
-                // ‘SƒCƒ“ƒ^[ƒtƒFƒCƒX‚ğ‘–¸.
-                while (interfaces.hasMoreElements()) {
-                    
-                    /* MacƒAƒhƒŒƒX. */
-                    String macAddress = "";
-                    
-                    // ƒCƒ“ƒ^ƒtƒF[ƒX‚ğ1Œæ“¾‚µA–¼‘O‚ğ•\¦.
-                    NetworkInterface nextInterface = (NetworkInterface) interfaces.nextElement();
-                    System.out.println("\n*ƒlƒbƒgƒ[ƒNƒCƒ“ƒ^[ƒtƒFƒCƒXy" + nextInterface.getDisplayName() + "z");
-                    
-                    // ‚±‚ÌƒCƒ“ƒ^ƒtƒF[ƒX‚ÉƒoƒCƒ“ƒh‚³‚ê‚½‘S‚Ä‚ÌInetAddresses‚ğæ“¾.
-                    Enumeration addresses = nextInterface.getInetAddresses();
-                    
-                    while (addresses.hasMoreElements()) {
-                        // InetAddress‚ğ‚PŒæ“¾.
-                        InetAddress address = (InetAddress)addresses.nextElement();
-                        
-                        /* FQDN. */
-                        System.out.println("getCanonicalHostName = [" + address.getCanonicalHostName() + "]");
-                        
-                        /* IPƒAƒhƒŒƒX. */
-                        System.out.println("getHostAddress       = [" + address.getHostAddress() + "]");
-                        
-                        // MacƒAƒhƒŒƒXæ“¾.
-                        byte[] byteMacAddresses = nextInterface.getHardwareAddress();
-                        
-                        // MacƒAƒhƒŒƒX‚ÌƒoƒCƒg•¶š—ñ‚©‚ço—Í—p•¶š—ñ‚É•ÏŠ·.
-                        if (byteMacAddresses != null) {
-                            for (int i = 0; i < byteMacAddresses.length - 1; i++) {
-                                macAddress += String.format("%02X:", byteMacAddresses[i]);
-                            }
-                            macAddress += String.format("%02X", byteMacAddresses[byteMacAddresses.length - 1]);
-                        }
-                        /* MacƒAƒhƒŒƒX */
-                        System.out.println("getMacAddress        = [" + macAddress + "]" + "\n");
-                    }
-                }
-            } else {
-                System.out.println("ƒCƒ“ƒ^[ƒtƒFƒCƒX‚ª‚ ‚è‚Ü‚¹‚ñB");
+            // ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ã‚¤ã‚¹ãŒç„¡ã‘ã‚Œã°ã€ã‚¹ã‚­ãƒƒãƒ—.
+            if (interfaces == null) {
+                System.out.println("ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ã‚¤ã‚¹ãŒã‚ã‚Šã¾ã›ã‚“ã€‚");
+                return;
             }
-            
+
+            // å…¨ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ã‚¤ã‚¹ã‚’èµ°æŸ».
+            while (interfaces.hasMoreElements()) {
+
+                /* Macã‚¢ãƒ‰ãƒ¬ã‚¹. */
+                String macAddress = "";
+
+                // ã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã‚’1ä»¶å–å¾—ã—ã€åå‰ã‚’è¡¨ç¤º.
+                NetworkInterface nextInterface = (NetworkInterface) interfaces.nextElement();
+                System.out.println("\n*ãƒãƒƒãƒˆãƒ¯ãƒ¼ã‚¯ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ã‚¤ã‚¹ã€" + nextInterface.getDisplayName() + "ã€‘");
+
+                // ã“ã®ã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã«ãƒã‚¤ãƒ³ãƒ‰ã•ã‚ŒãŸå…¨ã¦ã®InetAddressesã‚’å–å¾—.
+                Enumeration addresses = nextInterface.getInetAddresses();
+
+                while (addresses.hasMoreElements()) {
+                    // InetAddressã‚’ï¼‘ä»¶å–å¾—.
+                    InetAddress address = (InetAddress)addresses.nextElement();
+
+                    /* FQDN. */
+                    System.out.println("getCanonicalHostName = [" + address.getCanonicalHostName() + "]");
+
+                    /* IPã‚¢ãƒ‰ãƒ¬ã‚¹. */
+                    System.out.println("getHostAddress       = [" + address.getHostAddress() + "]");
+
+                    // Macã‚¢ãƒ‰ãƒ¬ã‚¹å–å¾—.
+                    byte[] byteMacAddresses = nextInterface.getHardwareAddress();
+
+                    // Macã‚¢ãƒ‰ãƒ¬ã‚¹ã®ãƒã‚¤ãƒˆæ–‡å­—åˆ—ã‹ã‚‰å‡ºåŠ›ç”¨æ–‡å­—åˆ—ã«å¤‰æ›.
+                    if (byteMacAddresses != null) {
+                        for (int i = 0; i < byteMacAddresses.length - 1; i++) {
+                            macAddress += String.format("%02X:", byteMacAddresses[i]);
+                        }
+                        macAddress += String.format("%02X", byteMacAddresses[byteMacAddresses.length - 1]);
+                    }
+                    /* Macã‚¢ãƒ‰ãƒ¬ã‚¹ */
+                    System.out.println("getMacAddress        = [" + macAddress + "]" + "\n");
+                }
+            }
+
         } catch (IOException e) {
             e.printStackTrace();
         }

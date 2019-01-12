@@ -1,13 +1,10 @@
-[問題](../README.md)
-
-***
-# 034：解答例
-ラムダ式とメソッド参照を使うことで36字で書ける。
-
-forEach を使う場合は stream() を呼ばずとも、 [Iterable インターフェイスに定義されている方の forEach メソッド](https://docs.oracle.com/javase/jp/8/docs/api/java/lang/Iterable.html#forEach-java.util.function.Consumer-)を使える。
-
-```java:解答例
+# 解答
+java.lang.Systemクラスのフィールドoutの`println()`メソッドを呼ぶので、以下のようになる
+```java
 medals.forEach(System.out::println);
 ```
 
-[ソースコード(Knock034.java)](src/Knock034.java)
+# 参考
+http://www.oracle.com/technetwork/jp/articles/java/architect-lambdas-part1-2080972-ja.html  
+https://docs.oracle.com/javase/jp/8/docs/api/java/lang/System.html  
+https://docs.oracle.com/javase/jp/8/docs/api/java/io/PrintStream.html#println-java.lang.String-  

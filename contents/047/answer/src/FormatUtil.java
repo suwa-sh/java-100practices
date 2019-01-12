@@ -1,28 +1,17 @@
-import java.util.Date;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
-/**
- * 047‚Åg—p‚·‚éƒ†[ƒeƒBƒŠƒeƒBƒNƒ‰ƒX.
- *
- * @author jsfkdt
- */
-public final class FormatUtil {
-    
+public class FormatUtil {
     /**
-     * ’è‚ß‚ç‚ê‚½ƒtƒH[ƒ}ƒbƒg‚Å“ú‚ğ•Ô‹p‚·‚é
-     *
-     * @param  date  DateŒ^•Ï”
-     * @return ’è‚ß‚½ƒtƒH[ƒ}ƒbƒg‚Å‚Ì“ú.ˆø”‚ªnull‚Ìê‡‚Ínull‚ğ•Ô‹p.
-     */    
-    public final String dayAndTime(final Date date) {
+     * "yyyy-MM-dd HH:mm:ss.SSS"ã®å½¢ã§æ—¥æ™‚ã‚’ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã—ãŸæ–‡å­—åˆ—ã‚’ä½œæˆã™ã‚‹.
+     * @param  Date date ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã™ã‚‹æ—¥æ™‚
+     * @return å¼•æ•°ã§å—ã‘å–ã£ãŸæ—¥æ™‚ã‚’ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã—ãŸæ–‡å­—åˆ—ã€‚å¼•æ•°ãŒnullã®å ´åˆã¯nullã‚’è¿”ã™ã€‚
+     */
+    public static String dateToFormatString(Date date) {
         if (date == null) {
             return null;
         }
-        
-        // ƒtƒH[ƒ}ƒbƒg‚ğ’è‚ß‚é.
-        final SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
-        
-        //’è‚ß‚½ƒtƒH[ƒ}ƒbƒg‚Å•Ô‹p.
-        return df.format(date);
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+        return sdf.format(date);
     }
 }

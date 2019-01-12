@@ -1,46 +1,46 @@
 import java.io.Serializable;
 /**
- * 030—p‚ÌƒCƒ“ƒXƒ^ƒ“ƒX•Ï”‚ğ‚ÂƒNƒ‰ƒX‚Å‚·.
+ * 030ç”¨ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹å¤‰æ•°ã‚’æŒã¤ã‚¯ãƒ©ã‚¹ã§ã™.
  *
  * @author jsfkdt
  */
 public class ForSerializeClass implements Serializable {
-    /* intŒ^‚ÌƒCƒ“ƒXƒ^ƒ“ƒX•Ï” */
+    /* intå‹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹å¤‰æ•° */
     private int intInstance = 1;
-    /* StringŒ^‚ÌƒCƒ“ƒXƒ^ƒ“ƒX•Ï” */
+    /* Stringå‹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹å¤‰æ•° */
     private String stringInstance = "Answer30";
     
     /**
-     * intŒ^ƒCƒ“ƒXƒ^ƒ“ƒX•Ï”‚Ì’l‚ğİ’è‚·‚é.
+     * intå‹ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹å¤‰æ•°ã®å€¤ã‚’è¨­å®šã™ã‚‹.
      *
-     * @param intInstance intŒ^‚Ìˆø”
+     * @param intInstance intå‹ã®å¼•æ•°
      */
     public void setIntInstance(int intInstance) {
         this.intInstance = intInstance;
     }
     
     /**
-     * intŒ^ƒCƒ“ƒXƒ^ƒ“ƒX•Ï”‚Ì’l‚ğæ“¾‚·‚é.
+     * intå‹ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹å¤‰æ•°ã®å€¤ã‚’å–å¾—ã™ã‚‹.
      *
-     * @return intŒ^ƒCƒ“ƒXƒ^ƒ“ƒX•Ï”‚Ì’l
+     * @return intå‹ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹å¤‰æ•°ã®å€¤
      */
     public int getIntInstance() {
         return this.intInstance;
     }
     
     /**
-     * StringŒ^ƒCƒ“ƒXƒ^ƒ“ƒX•Ï”‚Ì’l‚ğİ’è‚·‚é.
+     * Stringå‹ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹å¤‰æ•°ã®å€¤ã‚’è¨­å®šã™ã‚‹.
      *
-     * @param stringInstance StringŒ^‚Ìˆø”
+     * @param stringInstance Stringå‹ã®å¼•æ•°
      */
     public void setStringInstance(String stringInstance) {
         this.stringInstance = stringInstance;
     }
     
     /**
-     * StringŒ^ƒCƒ“ƒXƒ^ƒ“ƒX•Ï”‚Ì’l‚ğæ“¾‚·‚é.
+     * Stringå‹ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹å¤‰æ•°ã®å€¤ã‚’å–å¾—ã™ã‚‹.
      *
-     * @return StringŒ^ƒCƒ“ƒXƒ^ƒ“ƒX•Ï”‚Ì’l
+     * @return Stringå‹ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹å¤‰æ•°ã®å€¤
      */
     public String getStringInstance() {
         return this.stringInstance;

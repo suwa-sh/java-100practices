@@ -1,5 +1,7 @@
-[問題](../README.md)
+# 解答
+falseが出力される
 
-***
-# 012：解答例
-```false``` が出力される。
+booleanの初期値がfalseのため
+
+# 参考
+http://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html

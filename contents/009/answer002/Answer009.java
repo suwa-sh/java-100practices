@@ -4,32 +4,32 @@ import java.io.InputStream;
 import java.io.IOException;
 
 /**
- * 009‚Ì‰ğ“š‚Å‚·B
+ * 009ã®è§£ç­”ã§ã™ã€‚
  *
  * @author jsfkdt
  */
 public class Answer009 {
     /**
-     * 009‚Ì‰ğ“š‚Å‚·B
-     * @param arguments g—p‚µ‚Ü‚¹‚ñB
+     * 009ã®è§£ç­”ã§ã™ã€‚
+     * @param arguments ä½¿ç”¨ã—ã¾ã›ã‚“ã€‚
      */
     public static void main (String[] args) {
 
         Properties properties = new Properties();
         
-        //”z—ñ‚É’l‚ª“ü‚Á‚Ä‚¢‚È‚¢ê‡A‹­§I—¹
+        //é…åˆ—ã«å€¤ãŒå…¥ã£ã¦ã„ãªã„å ´åˆã€å¼·åˆ¶çµ‚äº†
         if (args.length < 1 ) {
-            System.err.println("ˆø”‚Éƒtƒ@ƒCƒ‹ƒpƒX‚ğw’è‚µAÄÀs‚µ‚Ä‰º‚³‚¢");
+            System.err.println("å¼•æ•°ã«ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ã‚’æŒ‡å®šã—ã€å†å®Ÿè¡Œã—ã¦ä¸‹ã•ã„");
             System.exit(1);
         }
         String file = args[0];
         
         try (InputStream inputStream = new FileInputStream(file)) {
-            System.out.println(file+"‚ğ“Ç‚İ‚ñ‚¾Œ‹‰Ê... ");
-            //“Ç‚İ‚ñ‚¾ƒtƒ@ƒCƒ‹‚ğƒvƒƒpƒeƒB‚Öƒ[ƒh
+            System.out.println(file+"ã‚’èª­ã¿è¾¼ã‚“ã çµæœ... ");
+            //èª­ã¿è¾¼ã‚“ã ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã¸ãƒ­ãƒ¼ãƒ‰
             properties.load(inputStream);
 
-            //’l‚Ìæ“¾
+            //å€¤ã®å–å¾—
             System.out.println(properties);
             System.out.println();
             

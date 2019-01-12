@@ -4,7 +4,7 @@ import java.rmi.RemoteException;
 import java.util.Random;
 
 /**
- * 021‚Ì‰ğ“š‚Å‚·. ƒT[ƒo‘¤‚ªŒ‹‰Ê‚ğ•Ô‹p‚·‚é.
+ * 021ã®è§£ç­”ã§ã™. ã‚µãƒ¼ãƒå´ãŒçµæœã‚’è¿”å´ã™ã‚‹.
  *
  * @author jsfkdt
  */
@@ -24,12 +24,12 @@ public class RandomImpl extends UnicastRemoteObject implements RandomRmi {
     }
     
     /**
-     * 021‚Ì‰ğ“š‚Å‚·. 
+     * 021ã®è§£ç­”ã§ã™. 
      *
-     * @param arguments g—p‚µ‚Ü‚¹‚ñ.
+     * @param arguments ä½¿ç”¨ã—ã¾ã›ã‚“.
      */
     public static void main(String[] args) {
-        // ƒT[ƒo‚Ì‹N“®
+        // ã‚µãƒ¼ãƒã®èµ·å‹•
         System.out.println("Server start");
         
         try {

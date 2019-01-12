@@ -1,7 +1,7 @@
 import java.util.Date;
 
 /**
- * 073‚Å—p‚¢‚éCommandFactory.
+ * 073ã§ç”¨ã„ã‚‹CommandFactory.
  *
  * @author jsfkdt
  */
@@ -9,25 +9,25 @@ public class CommandFactory {
     private static final CommandFactory INSTANCE = new CommandFactory();
     
     /**
-     * ƒCƒ“ƒXƒ^ƒ“ƒX‰»‚³‚ê‚È‚¢‚½‚ß‚ÌCüq‚ğ•t—^‚µ‚½ƒRƒ“ƒXƒgƒ‰ƒNƒ^.
+     * ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã•ã‚Œãªã„ãŸã‚ã®ä¿®é£¾å­ã‚’ä»˜ä¸ã—ãŸã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿.
      */
     private CommandFactory() {
     }
     
     /**
-     * –{ƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ğæ“¾‚·‚é.
+     * æœ¬ã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’å–å¾—ã™ã‚‹.
      */
     public static CommandFactory getInstance() {
         return INSTANCE;
     }
     
-    // “ú•tæ“¾ƒCƒ“ƒXƒ^ƒ“ƒX 
+    // æ—¥ä»˜å–å¾—ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ 
     
     
     /**
-     * Œ»İ“ú‚ğ•\‚·ƒƒ\ƒbƒh‚ğ‚ÂƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ğæ“¾.
+     * ç¾åœ¨æ—¥æ™‚ã‚’è¡¨ã™ãƒ¡ã‚½ãƒƒãƒ‰ã‚’æŒã¤ã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’å–å¾—.
      *
-     * @return Œ»İ“ú‚ğ•\‚·ƒƒ\ƒbƒh‚ğ‚ÂƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX.
+     * @return ç¾åœ¨æ—¥æ™‚ã‚’è¡¨ã™ãƒ¡ã‚½ãƒƒãƒ‰ã‚’æŒã¤ã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹.
      */
     @SuppressWarnings("unchecked")
     public Command<Date> createCurrentCommand() {
@@ -35,9 +35,9 @@ public class CommandFactory {
     }
     
     /**
-     * ƒ‰ƒ“ƒ_ƒ€‚È”’l‚ğ•Ô‚·ƒƒ\ƒbƒh‚ğ‚ÂƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ğæ“¾.
+     * ãƒ©ãƒ³ãƒ€ãƒ ãªæ•°å€¤ã‚’è¿”ã™ãƒ¡ã‚½ãƒƒãƒ‰ã‚’æŒã¤ã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’å–å¾—.
      *
-     * @return ƒ‰ƒ“ƒ_ƒ€‚È”’l‚ğ•Ô‚·ƒƒ\ƒbƒh‚ğ‚ÂƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX.
+     * @return ãƒ©ãƒ³ãƒ€ãƒ ãªæ•°å€¤ã‚’è¿”ã™ãƒ¡ã‚½ãƒƒãƒ‰ã‚’æŒã¤ã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹.
      */
     @SuppressWarnings("unchecked")
     public Command<Integer> createRandomIntegerCommand() {

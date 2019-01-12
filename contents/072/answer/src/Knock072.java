@@ -5,9 +5,9 @@ public class Knock072 extends HttpServlet {
     public void doGet(HttpServletRequest req, HttpServletResponse res)
             throws ServletException, IOException {
 
-        // ƒŠƒNƒGƒXƒgƒpƒ‰ƒƒ^‚ÉƒGƒ“ƒR[ƒhw’è‚ğs‚¤
+        // ãƒªã‚¯ã‚¨ã‚¹ãƒˆãƒ‘ãƒ©ãƒ¡ã‚¿ã«ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‰æŒ‡å®šã‚’è¡Œã†
         req.setCharacterEncoding("UTF-8");
-        // ƒŒƒXƒ|ƒ“ƒX‚ÉƒRƒ“ƒeƒ“ƒcƒ^ƒCƒv‚ğƒZƒbƒg
+        // ãƒ¬ã‚¹ãƒãƒ³ã‚¹ã«ã‚³ãƒ³ãƒ†ãƒ³ãƒ„ã‚¿ã‚¤ãƒ—ã‚’ã‚»ãƒƒãƒˆ
         res.setContentType("application/json; charset=UTF-8");
         
         String page = req.getParameter("page");
@@ -22,13 +22,13 @@ public class Knock072 extends HttpServlet {
         }
         
         try {
-            // ƒvƒƒZƒX‚ğÀs.
+            // ãƒ—ãƒ­ã‚»ã‚¹ã‚’å®Ÿè¡Œ.
             processor.process(req, res);
             
-            // ƒŠƒ^[ƒ“ƒR[ƒh‚Ìİ’è.
+            // ãƒªã‚¿ãƒ¼ãƒ³ã‚³ãƒ¼ãƒ‰ã®è¨­å®š.
             res.setStatus(HttpServletResponse.SC_OK);
         } catch (Exception e) {
-            // ƒŠƒ^[ƒ“ƒR[ƒh‚Ìİ’è.
+            // ãƒªã‚¿ãƒ¼ãƒ³ã‚³ãƒ¼ãƒ‰ã®è¨­å®š.
             res.setStatus(HttpServletResponse.SC_BAD_REQUEST);
         }
     }

@@ -1,22 +1,9 @@
 import java.util.Date;
 
-/**
- * 047‚Ì‰ğ“š‚Å‚·B
- *
- * @author jsfkdt
- */
 public class Answer047 {
-    
-    /**
-     * 047‚Ì‰ğ“š‚Å‚·.
-     * @param arguments g—p‚µ‚Ü‚¹‚ñ.
-     */
-    public static void main(final String[] args) {
-        
-        // ’è‚ß‚ç‚ê‚½ƒtƒH[ƒ}ƒbƒg‚ğ•Ô‹p‚·‚éƒ†[ƒeƒBƒŠƒeƒB‚ğg—p.
-        final String dayAndTime = new FormatUtil().dayAndTime(new Date());
-        
-        // “ú‚ğ•W€o—Í.
-        System.out.println(dayAndTime);
+    public static void main(String[] arguments) {
+        // è¿´ï½¾è¨ï½¨è­ã‚‡ç¶¾ç¹§åµãƒµç¹§ï½©ç¹ï½¼ç¹æ§­ãƒ£ç¹åŒ»ï¼ ç¸ºï½¦é™¦ï½¨é‰ï½º
+        String dateStr = FormatUtil.dateToFormatString(new Date());
+        System.out.println(dateStr);
     }
 }

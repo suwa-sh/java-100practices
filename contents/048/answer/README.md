@@ -1,18 +1,24 @@
-[問題](../README.md)
+# 解答
+`find()`
+指定のパターン（正規表現）が検索対象のどこかと一致した場合  
+使用シーンの例：検索対象に「hoge」という文字が含まれているかを検索するとき  
+○ : http://hoge.com  
+○ : https://hoge.com  
+○ : https://hoge.com/index.htm
 
-***
-# 048：解答例
-* `find()`
-	* 概要：部分文字列によるマッチ判定パターンが(どこかの)部分とマッチした場合、`true`。  
-      いわゆる、部分一致判定
-	* 使用シーン：対象の文中に含まれる、あるワードを検索する際。
+`lookingAt()`
+指定のパターン（正規表現）が検索対象の先頭から一致した場合（前方一致）  
+使用シーンの例：検索対象に「https://」から始まるURLを検索するとき  
+× : http://hoge.com  
+○ : https://hoge.com  
+○ : https://hoge.com/index.htm
 
-* `lookingAt()`
-	* 概要：パターンが先頭からマッチした場合、`true`。  
-      いわゆる、前方一致判定
-	* 使用シーン：文書のヘッダなどに対して検索を行う際。
+`matches()`
+指定のパターン（正規表現）が検索対象の全体に一致した場合（完全一致）
+使用シーンの例：検索対象に「https」から始まり「.htm」で終わるURLを検索するとき  
+× : http://hoge.com  
+× : https://hoge.com  
+○ : https://hoge.com/index.htm
 
-* `matches()`
-	* 概要：パターンが全体とマッチした場合、`true`。  
-      いわゆる、完全一致判定
-	* 使用シーン：固有名詞のパターンで検索を行う際。
+# 参考
+https://docs.oracle.com/javase/jp/8/docs/api/java/util/regex/Matcher.html

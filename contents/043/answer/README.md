@@ -1,5 +1,9 @@
-[問題](../README.md)
+# 解答
+java.lang.Objectを直接継承するため`extends Object`を指定する。  
+また、java.lang.Cloneableインタフェースを実装するため`implements Cloneable`を指定する。
 
-***
-# 043：解答例
-[ソースコード(Answer043.java)](src/Answer043.java)
+『従来、このインタフェースを実装するクラスは、publicメソッドでObject.clone (protected)をオーバーライドする必要があります。』とあるため、`clone()`をオーバーライドして作成する。  
+
+# 参考
+https://docs.oracle.com/javase/jp/8/docs/api/java/lang/Cloneable.html  
+https://docs.oracle.com/javase/jp/8/docs/api/java/lang/Object.html#clone--

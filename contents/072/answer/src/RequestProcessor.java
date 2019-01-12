@@ -1,11 +1,11 @@
 /**
- * �e�N���X�̃��\�b�h�W�񂵂��C���^�[�t�F�C�X.
+ * 各クラスのメソッド集約したインターフェイス.
  *
  * @author jsfkdt
  */
 public interface RequestProcessor {
     /**
-     * �ȗ�.
+     * 省略.
      */
     public void process(HttpServletRequest req, HttpServletResponse res)
     throws Exception;

@@ -2,56 +2,56 @@ import java.lang.ProcessBuilder;
 import java.io.IOException;
 
 /**
- * 056‚Ì‰ğ“š‚Å‚·.
+ * 056ã®è§£ç­”ã§ã™.
  *
  * @author jsfkdt
  */
 public class Answer056 {
     /**
-     * 056‚Ì‰ğ“š‚Å‚·.
+     * 056ã®è§£ç­”ã§ã™.
      *
-     * @param arguments g—p‚µ‚Ü‚¹‚ñ.
+     * @param arguments ä½¿ç”¨ã—ã¾ã›ã‚“.
      */
     public static void main(final String[] args) {
         try {
-            // ƒRƒ}ƒ“ƒh‚ğİ’è.
+            // ã‚³ãƒãƒ³ãƒ‰ã‚’è¨­å®š.
             ProcessBuilder command = new ProcessBuilder("cmd", "/c", "dir");
             
-            // ƒRƒ}ƒ“ƒh‚ÌÀs.
+            // ã‚³ãƒãƒ³ãƒ‰ã®å®Ÿè¡Œ.
             Process process = command.start();
             
-            // ƒXƒŒƒbƒhƒCƒ“ƒXƒ^ƒ“ƒX‚Ì¶¬.
+            // ã‚¹ãƒ¬ãƒƒãƒ‰ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã®ç”Ÿæˆ.
             InputStreamThread output = new InputStreamThread(process.getInputStream());
             InputStreamThread outputError = new InputStreamThread(process.getErrorStream());
             
-            // ƒXƒŒƒbƒh‚ÌŠJn.
+            // ã‚¹ãƒ¬ãƒƒãƒ‰ã®é–‹å§‹.
             output.start();
             outputError.start();
             
-            // ƒvƒƒZƒX‚ÌI—¹‘Ò‚¿
+            // ãƒ—ãƒ­ã‚»ã‚¹ã®çµ‚äº†å¾…ã¡
             process.waitFor();
             
-            // ƒXƒŒƒbƒhI—¹‘Ò‚¿
+            // ã‚¹ãƒ¬ãƒƒãƒ‰çµ‚äº†å¾…ã¡
             output.join();
             outputError.join();
             
-            System.out.println("–ß‚è’lF" + process.exitValue());
+            System.out.println("æˆ»ã‚Šå€¤ï¼š" + process.exitValue());
             
-            //•W€o—Í‚Ì“à—e‚ğo—Í
+            //æ¨™æº–å‡ºåŠ›ã®å†…å®¹ã‚’å‡ºåŠ›
             for (String out : output.getStringList()) {
                 System.out.println(out);
             }
             
-            //•W€ƒGƒ‰[‚Ì“à—e‚ğo—Í
+            //æ¨™æº–ã‚¨ãƒ©ãƒ¼ã®å†…å®¹ã‚’å‡ºåŠ›
             for (String outError : outputError.getStringList()) {
                 System.err.println(outError);
             }
             
         } catch (IOException e) {
-            // “üo—ÍƒGƒ‰[.
+            // å…¥å‡ºåŠ›ã‚¨ãƒ©ãƒ¼.
             e.printStackTrace();
         } catch (InterruptedException e) {
-            // Š„‚è‚İƒGƒ‰[.
+            // å‰²ã‚Šè¾¼ã¿ã‚¨ãƒ©ãƒ¼.
             e.printStackTrace();
         }
     }
